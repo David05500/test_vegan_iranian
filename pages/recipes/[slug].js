@@ -90,7 +90,9 @@ const addJSONLD = (recipe) => {
                 if(c.props.children.props){
                     ingredientsArray.push(c.props.children.props.children);
                 }else {
-                    ingredientsArray.push(c.props.children[0].props.children[0])
+                    // const dataToPush = c.props.children[0].props.children[0] | c.props.children[0]
+                    console.log(c.props.children[0])
+                    // ingredientsArray.push(dataToPush)
                 }
             })
         }
