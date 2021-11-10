@@ -86,15 +86,17 @@ const addJSONLD = (recipe) => {
         if(i.props.children.every(i => (typeof i === "string"))) {
             if(i.props.children[0] !== '') ingredientsArray.push(i.props.children[0])
         }else if(i.props.children[0] != ''){
-            _.map(i.props.children, c => {
-                if(c.props.children.props){
-                    ingredientsArray.push(c.props.children.props.children);
-                }else {
-                    // const dataToPush = c.props.children[0].props.children[0] | c.props.children[0]
-                    console.log(c.props.children[0])
-                    // ingredientsArray.push(dataToPush)
-                }
-            })
+            console.log(typeof i.props.children[0])
+
+            // _.map(i.props.children, c => {
+            //     if(c.props.children.props){
+            //         ingredientsArray.push(c.props.children.props.children);
+            //     }else {
+            //         // const dataToPush = c.props.children[0].props.children[0] | c.props.children[0]
+            //         console.log(c.props.children[0])
+            //         // ingredientsArray.push(dataToPush)
+            //     }
+            // })
         }
     })
     ingredientsArray = `[${ingredientsArray.map(s => `"${s}"`).join(', ')}]`;
