@@ -156,7 +156,7 @@ const addJSONLD = (recipe) => {
             "cookTime": "${convertToIsoDate(recipe.cookTime)}",
             "totalTime": "${convertToIsoDate(recipe.totalTime)}",
             "keywords": "${keywords}",
-            "recipeYield": "${recipe.servings}",
+            "recipeYield": "${recipe.servingsstr.match(/(\d+)/)}",
             "recipeCategory": "${recipe.course}",
             "recipeCuisine": "${recipe.cuisine}",
             "recipeIngredient": ${ingredientsArray},
