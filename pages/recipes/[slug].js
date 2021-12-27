@@ -11,7 +11,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import _ from 'lodash';
 import moment from 'moment'
-import { timeInDecimals } from './helpers'
+import { timeInDecimals } from '../../helpers/helpers'
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - 220);
 
