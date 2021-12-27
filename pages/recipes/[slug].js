@@ -107,28 +107,30 @@ const addJSONLD = (recipe) => {
     ingredientsArray = `[${ingredientsArray.map(s => `"${s}"`).join(', ')}]`;
     const keywords = recipe.slug.split('-').join(', ')
 
-   
-    const convertToIsoDate = (data) =>{
-        const splitInput = data.split(" ").join("").match(/[a-z]+|[^a-z]+/gi);
-        let duration = moment.duration()
+    const convertToIsoDate = (data) => {
+        if (data) {
+            const splitInput = data.split(" ").join("").match(/[a-z]+|[^a-z]+/gi);
+            let duration = moment.duration()
 
-        splitInput.map(i => {
-            if (/^\d+$/.test(i)){
-                let timeDefinition = (splitInput[splitInput.indexOf(i) + 1]).charAt(0);
-                switch(timeDefinition) {
-                    case "h":
-                        timeDefinition = "hours"
-                      break;
-                    case "min":
-                        timeDefinition = "minutes"
-                      break;
-                    default:
-                        break;
+            splitInput.map(i => {
+                if (/^\d+$/.test(i)) {
+                    let timeDefinition = (splitInput[splitInput.indexOf(i) + 1]).charAt(0);
+                    switch (timeDefinition) {
+                        case "h":
+                            timeDefinition = "hours"
+                            break;
+                        case "min":
+                            timeDefinition = "minutes"
+                            break;
+                        default:
+                            break;
+                    }
+                    duration.add(moment.duration(parseInt(i), timeDefinition))
                 }
-                duration.add(moment.duration(parseInt(i), timeDefinition))
-            }
-        })
-        return duration
+            })
+            return duration
+        }
+        return data
     }
 
     return {
