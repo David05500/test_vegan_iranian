@@ -10,6 +10,8 @@ import BlogDataContext from '../../components/BlogDataContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import _ from 'lodash';
+import moment from 'moment'
+import { timeInDecimals } from './helpers'
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - 220);
 
@@ -36,6 +38,7 @@ const LISTITEM = ({ node, children }) => {
         <li>{children}</li>
     );
 };
+
 
 const addJSONLD = (recipe) => {
     let ingredientsArray = [];
@@ -87,8 +90,6 @@ const addJSONLD = (recipe) => {
             if (i.props.children[0] !== '') ingredientsArray.push(i.props.children[0])
         } else if (i.props.children[0] != '') {
 
-
-
             _.map(i.props.children, c => {
                 if (c !== "\n") {
                     if (typeof c.props.children === "object") {
@@ -105,6 +106,31 @@ const addJSONLD = (recipe) => {
     })
     ingredientsArray = `[${ingredientsArray.map(s => `"${s}"`).join(', ')}]`;
     const keywords = recipe.slug.split('-').join(', ')
+
+   
+    const convertToIsoDate = (data) =>{
+        const splitInput = data.split(" ").join("").match(/[a-z]+|[^a-z]+/gi);
+        let duration = moment.duration()
+
+        splitInput.map(i => {
+            if (/^\d+$/.test(i)){
+                let timeDefinition = (splitInput[splitInput.indexOf(i) + 1]).charAt(0);
+                switch(timeDefinition) {
+                    case "h":
+                        timeDefinition = "hours"
+                      break;
+                    case "min":
+                        timeDefinition = "minutes"
+                      break;
+                    default:
+                        break;
+                }
+                duration.add(moment.duration(parseInt(i), timeDefinition))
+            }
+        })
+        return duration
+    }
+
     return {
         __html: `[{
             "@context": "https://schema.org/",
@@ -124,9 +150,9 @@ const addJSONLD = (recipe) => {
             },
             "datePublished": "${recipe.createdAt}",
             "description": "${documentToReactComponents(recipe.shortDescription)[0].props.children[0]}",
-            "prepTime": "${recipe.prepTime}",
-            "cookTime": "${recipe.cookTime}",
-            "totalTime": "${recipe.totalTime}",
+            "prepTime": "${convertToIsoDate(recipe.prepTime)}",
+            "cookTime": "${convertToIsoDate(recipe.cookTime)}",
+            "totalTime": "${convertToIsoDate(recipe.totalTime)}",
             "keywords": "${keywords}",
             "recipeYield": "${recipe.servings}",
             "recipeCategory": "${recipe.course}",
@@ -438,3 +464,5 @@ BlogPost.getInitialProps = async ({ query }) => {
     return { blogPost: props.blogPost };
 };
 export default BlogPost;
+
+
