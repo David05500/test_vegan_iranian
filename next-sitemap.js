@@ -1,4 +1,4 @@
-const siteUrl = "www.theiranianvegan.com"
+const siteUrl = "https://www.theiranianvegan.com"
 
 module.exports = {
 //   siteUrl: process.env.SITE_URL || 'https://example.com',
