@@ -453,18 +453,18 @@ const BlogPost = ({ blogPost }) => {
                     type="application/ld+json"
                     dangerouslySetInnerHTML={addJSONLD(post)}
                 />
-                {/* {console.log(addJSONLD(post).__html)} */}
-                {/* {console.log(JSON.parse(addJSONLD(post).__html))} */}
             </div>
         )
     }
 };
 
-BlogPost.getInitialProps = async ({ query }) => {
+
+export const getServerSideProps = async ({ query }) => {
     const { slug } = query;
     const props = await getContentfulContent('blogPost', slug);
-    return { blogPost: props.blogPost };
-};
+    return { props: { blogPost: props.blogPost} }
+}
+
 export default BlogPost;
 
 

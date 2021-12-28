@@ -19,7 +19,6 @@ function MyApp(props) {
     setInitialBlogs(_.orderBy(data, ['createdAt' ], ['desc']));
     setFilteredBlogs(_.orderBy(data, ['createdAt' ], ['desc']));
   }, []);
-
   useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageview(url)
