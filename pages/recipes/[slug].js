@@ -12,6 +12,7 @@ import Link from 'next/link';
 import _ from 'lodash';
 import moment from 'moment'
 import { timeInDecimals } from '../../helpers/helpers'
+import contentfulClient from '../../lib/contentful';
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - 220);
 
@@ -459,10 +460,32 @@ const BlogPost = ({ blogPost }) => {
 };
 
 
-export const getServerSideProps = async ({ query }) => {
-    const { slug } = query;
+export const getStaticPaths = async (params) => {
+    // fetch recipes
+    const res = await contentfulClient.getEntries({content_type: 'blogPost'});
+    const recipes = res.items.map(item => item.fields);
+
+    // Get the paths we want to pre-render based on posts
+    const paths = []
+    recipes.map(recipe => {
+      paths.push(
+        { params: { slug: String(recipe.slug)}}
+      )
+    })
+    return {
+      paths,
+      // If an ID is requested that isn't defined here, fallback will incrementally generate the page
+      fallback: true,
+    }
+  }
+
+export const getStaticProps = async ({params}) => {
+    const { slug } = params;
     const props = await getContentfulContent('blogPost', slug);
-    return { props: { blogPost: props.blogPost} }
+    return { 
+        props: { blogPost: props.blogPost}, 
+        revalidate: 1
+    }
 }
 
 export default BlogPost;
