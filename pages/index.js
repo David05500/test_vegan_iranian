@@ -9,14 +9,15 @@ import BlogDataContext from '../components/BlogDataContext';
 import useProgressiveImageHook from '../components/shared/useProgressiveImageHook';
 import Meta from '../components/shared/SeoMeta.js';
 
-const GetHomePageData = async () => {
-  const res = await contentfulClient.getEntries({
-    content_type: 'homePage',
-    limit: 100,
-  });
-  const data = res.items.map(item => item.fields);
-  return data;
-};
+// const GetHomePageData = async () => {
+//   const res = await contentfulClient.getEntries({
+//     content_type: 'homePage',
+//     limit: 100,
+//   });
+//   console.log('-------->', res)
+//   const data = res.items.map(item => item.fields);
+//   return data;
+// };
 
 const addJSONLD = () => {
   return {
@@ -50,27 +51,26 @@ const  HomePage = () => {
   const [homePagePic, setHomePagePic] = useState('')
   const [mobileHomePagePic, setMobileHomePagePic] = useState('')
   const [windowWidth, setWindowWidth] = useState(0);
-  const [isBGImageLoaded, setIsBGImageLoaded] = useState(false);
     
-  useEffect(() => {
-    GetHomePageData().then(phrases => {
-      setHomePagePic(phrases[0].homePageImage.fields.file.url);
-      setMobileHomePagePic(phrases[0].mobileHomePageImage.fields.file.url);
-    });
-    setWindowWidth(window.innerWidth);
-  }, []);
+  // useEffect(() => {
+  //   GetHomePageData().then(phrases => {
+  //     setHomePagePic(phrases[0].homePageImage.fields.file.url);
+  //     setMobileHomePagePic(phrases[0].mobileHomePageImage.fields.file.url);
+  //   });
+  //   setWindowWidth(window.innerWidth);
+  // }, []);
 
   const { isEnglish, setIsEnglish } = useContext(BlogDataContext);
-  const heroUrl = windowWidth > 430 ? homePagePic : mobileHomePagePic;
-  const loaded = useProgressiveImageHook(heroUrl);
+  // const heroUrl = windowWidth > 430 ? homePagePic : mobileHomePagePic;
+  // const loaded = useProgressiveImageHook(heroUrl);
 
-  if (loaded == null){
-    return (
-      <div className='h-screen w-screen flex items-center justify-center'>
-        <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16"></div>
-      </div>
-    )
-  }
+  // if (loaded == null){
+  //   return (
+  //     <div className='h-screen w-screen flex items-center justify-center'>
+  //       <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16"></div>
+  //     </div>
+  //   )
+  // }
   return (
     <div>
         <Meta 
@@ -78,9 +78,7 @@ const  HomePage = () => {
           description='I believe in compassion. I think we have a duty to create a world that is more ethical and just than the one in which we were raised. For me, this duty extends to all forms of life.'
         />
 
-        {/* <useProgressiveImage src={windowWidth > 430 ? `url(${homePagePic})` : `url(${mobileHomePagePic})`} placeholder='path/to/placeholder.jpg' /> */}
-
-        <div className='h-screen w-screen  bg-no-repeat bg-103p bg-center flex justify-center items-center'  style={{backgroundSize: 'cover', backgroundImage: `url(${loaded})`}} >
+        <div className='h-screen w-screen  bg-no-repeat bg-cover bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >
           <div style={{background: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3))', width: '100vw', height: '100vh'}} >
             <div className='flex flex-col justify-between pt-12 pb-28 lg:justify-center items-center h-screen '>
               <h1 className='italic text-3xl lg:text-7xl text-white font-bold z-50 main-logo lg:text-spaceping-4 mt-28' style={{textShadow: '6px 6px 0px rgba(0,0,0,0.1)'}} >THE    IRANIAN    VEGAN</h1>

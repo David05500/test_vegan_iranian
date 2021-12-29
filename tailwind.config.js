@@ -3,6 +3,12 @@ module.exports = {
   important: false,
   separator: ':',
   theme: {
+    extend: {
+      backgroundImage: () => ({
+        'desktop-home-image': "url('/manaHomePage__1_.webp')",
+        'mobile-home-image': "url('/mobileHomePageImage.webp')",
+      })
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -384,7 +390,7 @@ module.exports = {
       normal: '1.5',
       relaxed: '1.625',
       loose: '2',
-      '7': '1.75rem', 
+      '7': '1.75rem',
     },
     listStyleType: {
       none: 'none',
@@ -533,8 +539,8 @@ module.exports = {
       '20p': '20%',
       '60%': '60%',
       '50rem': '50rem',
-      '55p' : '55%',
-      '45p' : '45%',
+      '55p': '55%',
+      '45p': '45%',
     }),
     zIndex: {
       auto: 'auto',
@@ -565,6 +571,7 @@ module.exports = {
     alignItems: ['responsive', 'odd'],
     alignSelf: ['responsive', 'odd'],
     appearance: ['responsive', 'odd'],
+    backgroundImage: ['responsive', 'hover', 'focus'],
     backgroundAttachment: ['responsive', 'odd'],
     backgroundColor: ['responsive', 'odd', 'hover', 'focus', 'odd'],
     backgroundPosition: ['responsive', 'odd'],
