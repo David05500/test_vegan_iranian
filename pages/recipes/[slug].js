@@ -133,7 +133,7 @@ const addJSONLD = (recipe) => {
         }
         return data
     }
-
+    console.log(recipe)
     return {
         __html: `[{
             "@context": "https://schema.org/",
@@ -152,7 +152,7 @@ const addJSONLD = (recipe) => {
               "name": "Mana Rose Shamshiri-Fard"
             },
             "datePublished": "${recipe.createdAt}",
-            "description": "${documentToReactComponents(recipe.shortDescription)[0].props.children[0]}",
+            "description": "${recipe.shortDescription ? documentToReactComponents(recipe.shortDescription)[0].props.children[0] : ""}",
             "prepTime": "${convertToIsoDate(recipe.prepTime)}",
             "cookTime": "${convertToIsoDate(recipe.cookTime)}",
             "totalTime": "${convertToIsoDate(recipe.totalTime)}",
