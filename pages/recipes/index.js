@@ -29,7 +29,6 @@ const  Index = ( props ) => {
             />
             {data != null ? 
                 (<div className='m-auto text-2xl bg-gray-primary'>
-                    <Header />
                     <div className='max-width-735 px-4 lg:px-0 mx-auto lg:flex lg:flex-wrap mt-10'>
                         {!_.isEmpty(data) ?
                             _.map(data, blog => {
