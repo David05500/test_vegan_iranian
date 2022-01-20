@@ -133,7 +133,6 @@ const addJSONLD = (recipe) => {
         }
         return data
     }
-    console.log(recipe)
     return {
         __html: `[{
             "@context": "https://schema.org/",
@@ -227,7 +226,6 @@ const BlogPost = ({ blogPost }) => {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
                 </Head>
                 <div className='m-auto text-2xl bg-gray-primary '>
-                    <Header />
                     <div className='max-width-735 px-4 mx-auto mt-10 lg:mt-20'>
 
                         <h1 className='mb-10 text-center transform ease-in text-xl lg:text-2xl duration-100'>{isEnglish ? post.title : post.farsiTitle}</h1>

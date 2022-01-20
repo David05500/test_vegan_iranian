@@ -72,11 +72,7 @@ const  Index = ( props ) => {
                             ''
                         }
                     </div>
-                    <Waypoint
-                        onEnter={() => next()}
-                        onLeave={() => console.log('Left')}
-                    />
-                    <p>...Loading more...</p>
+                    <Waypoint onEnter={() => next()}/>
                 </div>
                 )
             :
