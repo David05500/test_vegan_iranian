@@ -4,6 +4,8 @@ import contentfulClient from '../lib/contentful';
 import BlogDataContext from '../components/BlogDataContext';
 import _ from 'lodash';
 import * as gtag from '../lib/gtag';
+import Header from '../components/shared/Header';
+import '../assets/styles/main.css';
 
 function MyApp(props) {
   const { Component, pageProps, router, data } = props;
@@ -61,6 +63,7 @@ function MyApp(props) {
 
   const next = () => setPage(page+1)
 
+  console.log('router.route', router.route)
 
   if (initialBlogs != {}) {
     return (
@@ -78,6 +81,7 @@ function MyApp(props) {
         paginatedRecipes: paginatedRecipes,
         next: next
       }}>
+        {router.route !== '/' && <Header />}
         <Component {...pageProps} key={router.route}/>
       </BlogDataContext.Provider>
     )

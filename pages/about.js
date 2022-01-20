@@ -1,35 +1,9 @@
-import { useEffect, useState } from 'react';
-import contentfulClient from '../lib/contentful';
-import '../assets/styles/main.css';
-// import PostList from '../components/post-list';
-import Header from '../components/shared/Header';
-import Head from 'next/head';
 import _ from 'lodash';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import Meta from '../components/shared/SeoMeta.js'
-
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - 220);
-
-const Bold = ({ children }) => <span className="text-base text-black font-medium">{children}</span>;
- 
-const Text = ({ children }) => {
-    return <p className="text-base text-justify">{children}</p>
-};
-
-const HEADING1 = ({ children }) => <h1 className="align-center text-gray-800 text-xl">{children}</h1>;
-
-const HEADING3 = ({ children }) => <h3 className="align-center text-gray-800 text-lg ">{children}</h3>;
-
-const MyLink = ({ children }) => <a className=" text-gray-600 pointer hover:opacity-60 transform ease-in duration-300">{children}</a>;
-
-const UlList = ({ children }) => <ul className="text-lg text-gray-700  list-disc">{children}</ul>;
-
-const OlList = ({ children }) => <ol className="text-lg text-red  list-decimal">{children}</ol>;
 
 const addJSONLD = () => {
   return {
-      __html: `[{
+    __html: `[{
         "@context": "https://schema.org",
         "@type": "WebPage",
         "@id": "https://theiranianvegan.com/about/#webpage",
@@ -54,73 +28,31 @@ const addJSONLD = () => {
   }
 };
 
-
-
-const GetAboutPageData = async () => {
-  const res = await contentfulClient.getEntries({
-    content_type: 'aboutMe',
-    limit: 100,
-  });
-  const aboutMedata = res.items.map(item => item.fields);
-  return aboutMedata;
-};
-
 const About = () => {
-  const [aboutMePagePic, setAboutMePagePic] = useState('');
-  const [aboutMeDescription, setAboutMeDescription] = useState('');
-
-  useEffect(() => {
-    GetAboutPageData().then(data => {
-      data[0].aboutMePic != undefined ? setAboutMePagePic(data[0].aboutMePic.fields.file.url) : '';
-      setAboutMeDescription(data[0].aboutMeDescription)
-    });
-  }, []);
-
-
-  const options = {
-    renderMark: {
-      [MARKS.BOLD]: text => <Bold>{text}</Bold>,
-    },
-    renderText: text => {
-        return text.split('\n').reduce((children, textSegment, index) => {
-          return [...children, index > 0 && <br key={index} />, textSegment];
-        }, []);
-    },
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
-      [BLOCKS.UL_LIST]: (node, children) => <UlList>{children}</UlList>,
-      [BLOCKS.OL_LIST]: (node, children) => <OlList>{children}</OlList>,
-      [BLOCKS.HEADING_1]: (node, children) => <HEADING1>{children}</HEADING1>,
-      [BLOCKS.HEADING_3]: (node, children) => <HEADING3>{children}</HEADING3>,
-      [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        return <img src={node.data.target.fields.file.url} className='my-10'/>
-      },
-      [INLINES.HYPERLINK]: (node, children) => <MyLink>{children}</MyLink>,
-    },
-  };
-
-
   return (
-    <div>
-      <Meta 
-        title='Iranian Vegan | About' 
+    <>
+      <Meta
+        title='Iranian Vegan | About'
         description='One of the cultural traits that immigrant communities pass on from generation to generation is the heritage of our cuisine. For us, as Iranians, and especially as the Iranian diaspora, food is so much more than just food.'
       />
       <div className='m-auto text-2xl bg-gray-primary'>
-        <Header />
         <div className='max-width-735 p-6 lg:p-0 mx-auto my-10 lg:my-20 '>
-          {documentToReactComponents(aboutMeDescription, options)}
+          <p className="mb-6 text-base font-medium text-justify" >I’m Mana. A young woman from the Iranian diaspora based in London. That’s all you need to know really. Apart from the fact that I’m probably a lot like you. I believe in compassion. I think we have a duty to create a world that is more ethical and just than the one in which we were raised. For me, this duty extends to all forms of life.</p>
 
-          <img className='mt-8' src={aboutMePagePic}></img>
+          <p className="mb-6 text-base text-justify">One of the cultural traits that immigrant communities pass on from generation to generation is the heritage of our cuisine. For us, as Iranians, and especially as the Iranian diaspora, food is so much more than just food. Engaging with the rituals and practices of creating and eating food are ways in which we connect with and hold on to our culture. Our identities are often fragmented, confused and we feel estranged from the world outside of our homes and our families. Given our history, and the political upheaval and change that has displaced us, consuming such food offers a stability of identity and ties us to our lineage in spaces of uncertainty.</p>
+
+          <p className="mb-6 text-base text-justify">With meat being such a huge staple in Iranian culture and diet, it often feels hard to disconnect with our culture and distance ourselves from our family, friends, social situations and identify with veganism, which is often dominated by western neoliberal narratives. Like many vegans from non-Western backgrounds, we often feel like we’re entering into a white-dominated space. Like veganism isn’t ours. This space is created to change that.</p>
+
+          <p className="mb-6 text-base text-justify">Our vegan practices don't mean that we have to leave our culture behind. As we know, the means of meat production today are nothing like it was on the farms of our ancestors. Animals are made a commodity, mass-produced and abused, whilst they are injected with hormones and medicated, having disastrous effects on our health, not to mention our dying Earth. This space is created to engage with our heritage, origins and anthropology of our food, as a way of maintaining the thread of continuity with our ancestors whilst offering a space for growth as times change, and as we change. For me, there is so much honour in creating the foods of my ancestors and knowing there is no pain and suffering in the dish, only love.</p>
 
         </div>
       </div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={addJSONLD()}
-      /> 
-    </div>
-)
+      />
+    </>
+  )
 }
 
 export default About;

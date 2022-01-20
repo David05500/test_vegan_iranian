@@ -1,14 +1,10 @@
-import '../assets/styles/main.css';
-import Header from '../components/shared/Header';
-import Head from 'next/head';
-import ContactForm from '../components/contactForm';
 import _ from 'lodash';
+import ContactForm from '../components/contactForm';
 import Meta from '../components/shared/SeoMeta.js'
-
 
 const addJSONLD = () => {
   return {
-      __html: `[{
+    __html: `[{
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "address": {
@@ -38,27 +34,25 @@ const addJSONLD = () => {
   }
 };
 
-const  Contact = () => {
-
+const Contact = () => {
   return (
-    <div>
-      <Meta 
-        title='Iranian Vegan | Contact Me' 
+    <>
+      <Meta
+        title='Iranian Vegan | Contact Me'
         description='A superb collection of fine iranian vegan recipes and history behind each recipe.'
       />
       <div className='m-auto text-2xl bg-gray-primary'>
-          <Header />
-          <div className='max-width-920 px-4 lg:px-8 mx-auto my-20'>
-            <h1 className=' mb-5 sub-title text-center text-lg text-gray-900'>CONTACT FORM</h1>
-            <ContactForm />
-          </div>
+        <div className='max-width-920 px-4 lg:px-8 mx-auto my-20'>
+          <h1 className=' mb-5 sub-title text-center text-lg text-gray-900'>CONTACT FORM</h1>
+          <ContactForm />
+        </div>
       </div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={addJSONLD()}
-      /> 
-    </div>
-)
+      />
+    </>
+  )
 }
 
 export default Contact;
