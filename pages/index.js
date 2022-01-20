@@ -1,23 +1,9 @@
-import { useEffect, useState, useContext } from 'react';
-import Head from 'next/head';
-import {createClient} from 'contentful';
-import contentfulClient from '../lib/contentful';
+import { useContext } from 'react';
 import '../assets/styles/main.css';
 import Link from 'next/link';
 import { GrInstagram } from "react-icons/gr";
 import BlogDataContext from '../components/BlogDataContext';
-import useProgressiveImageHook from '../components/shared/useProgressiveImageHook';
 import Meta from '../components/shared/SeoMeta.js';
-
-// const GetHomePageData = async () => {
-//   const res = await contentfulClient.getEntries({
-//     content_type: 'homePage',
-//     limit: 100,
-//   });
-//   console.log('-------->', res)
-//   const data = res.items.map(item => item.fields);
-//   return data;
-// };
 
 const addJSONLD = () => {
   return {
@@ -48,29 +34,7 @@ const addJSONLD = () => {
 };
 
 const  HomePage = () => {
-  const [homePagePic, setHomePagePic] = useState('')
-  const [mobileHomePagePic, setMobileHomePagePic] = useState('')
-  const [windowWidth, setWindowWidth] = useState(0);
-    
-  // useEffect(() => {
-  //   GetHomePageData().then(phrases => {
-  //     setHomePagePic(phrases[0].homePageImage.fields.file.url);
-  //     setMobileHomePagePic(phrases[0].mobileHomePageImage.fields.file.url);
-  //   });
-  //   setWindowWidth(window.innerWidth);
-  // }, []);
-
   const { isEnglish, setIsEnglish } = useContext(BlogDataContext);
-  // const heroUrl = windowWidth > 430 ? homePagePic : mobileHomePagePic;
-  // const loaded = useProgressiveImageHook(heroUrl);
-
-  // if (loaded == null){
-  //   return (
-  //     <div className='h-screen w-screen flex items-center justify-center'>
-  //       <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16"></div>
-  //     </div>
-  //   )
-  // }
   return (
     <div>
         <Meta 

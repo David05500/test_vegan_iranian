@@ -6,20 +6,20 @@ import Header from '../../components/shared/Header';
 import Head from 'next/head';
 import BlogDataContext from '../../components/BlogDataContext';
 import Meta from '../../components/shared/SeoMeta.js';
-
+import { Waypoint } from 'react-waypoint';
 
 const  Index = ( props ) => {
-    const { isEnglish, filteredBlogs } = useContext(BlogDataContext);
+    const { isEnglish, filteredBlogs, paginatedRecipes, next } = useContext(BlogDataContext);
     const [data, setData] = useState([]);
-    
+    console.log('paginatedRecipes', paginatedRecipes)
     useEffect(() => {
         if (_.isEmpty(data)){
-            setData(filteredBlogs);
+            setData(paginatedRecipes);
         }else{
-            const aremovedDuplicates = _.uniqBy(filteredBlogs, 'slug');
+            const aremovedDuplicates = _.uniqBy(paginatedRecipes, 'slug');
             setData(aremovedDuplicates);
         }
-    }, [filteredBlogs])
+    }, [paginatedRecipes])
 
     return (
         <div>
@@ -73,6 +73,11 @@ const  Index = ( props ) => {
                             ''
                         }
                     </div>
+                    <Waypoint
+                        onEnter={() => next()}
+                        onLeave={() => console.log('Left')}
+                    />
+                    <p>...Loading more...</p>
                 </div>
                 )
             :

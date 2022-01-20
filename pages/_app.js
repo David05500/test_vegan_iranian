@@ -14,6 +14,11 @@ function MyApp(props) {
   const [isSearching, setIsSearching] = useState(false);
   const [userSearchQuery, setUserSearchQuery] = useState({query: ""});
   const [isEnglish, setIsEnglish] = useState(true);
+
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(12);
+  const [paginatedRecipes, setPaginatedRecipes] = useState(null);
+
   
   useEffect(() => {
     setInitialBlogs(_.orderBy(data, ['createdAt' ], ['desc']));
@@ -50,6 +55,13 @@ function MyApp(props) {
     }
   }
 
+  useEffect(() => {
+    if (initialBlogs) setPaginatedRecipes(initialBlogs.slice(0, perPage*page))
+  }, [page, initialBlogs]);
+
+  const next = () => setPage(page+1)
+
+
   if (initialBlogs != {}) {
     return (
       <BlogDataContext.Provider value={{ 
@@ -62,7 +74,9 @@ function MyApp(props) {
         setUserSearchQuery: setUserSearchQuery,
         isEnglish: isEnglish,
         setIsEnglish: setIsEnglish,
-        searchRef: searchRef
+        searchRef: searchRef,
+        paginatedRecipes: paginatedRecipes,
+        next: next
       }}>
         <Component {...pageProps} key={router.route}/>
       </BlogDataContext.Provider>
