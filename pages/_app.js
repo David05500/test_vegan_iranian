@@ -18,7 +18,7 @@ function MyApp(props) {
   const [isEnglish, setIsEnglish] = useState(true);
 
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(12);
+  const [perPage, setPerPage] = useState(9);
   const [paginatedRecipes, setPaginatedRecipes] = useState(null);
 
   
