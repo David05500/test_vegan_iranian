@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import '../assets/styles/main.css';
 import Link from 'next/link';
 import { GrInstagram } from "react-icons/gr";
-import BlogDataContext from '../components/BlogDataContext';
+import {AppDataContext} from '../components/AppDataContext';
 import Meta from '../components/shared/SeoMeta.js';
 
 const addJSONLD = () => {
@@ -34,7 +34,7 @@ const addJSONLD = () => {
 };
 
 const  HomePage = () => {
-  const { isEnglish, setIsEnglish } = useContext(BlogDataContext);
+  const { isEnglish, setIsEnglish } = useContext(AppDataContext);
   return (
     <div>
         <Meta 

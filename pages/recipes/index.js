@@ -1,37 +1,39 @@
 import { useContext, useState, useEffect } from 'react';
-import '../../assets/styles/main.css';
 import Link from 'next/link';
 import _ from 'lodash';
-import Header from '../../components/shared/Header';
-import Head from 'next/head';
-import BlogDataContext from '../../components/BlogDataContext';
+import {AppDataContext} from '../../components/AppDataContext';
 import Meta from '../../components/shared/SeoMeta.js';
 import { Waypoint } from 'react-waypoint';
+import contentfulClient from '../../lib/contentful';
 
-const  Index = ( props ) => {
-    const { isEnglish, filteredBlogs, paginatedRecipes, next } = useContext(BlogDataContext);
-    const [data, setData] = useState([]);
-    console.log('paginatedRecipes', paginatedRecipes)
+const Index = ({ recipes }) => {
+    const { isEnglish, paginatedRecipes, initialRecipes, setInitialRecipes, next } = useContext(AppDataContext);
     useEffect(() => {
-        if (_.isEmpty(data)){
-            setData(paginatedRecipes);
-        }else{
-            const aremovedDuplicates = _.uniqBy(paginatedRecipes, 'slug');
-            setData(aremovedDuplicates);
+        if (recipes) {
+            setInitialRecipes(recipes)
         }
-    }, [paginatedRecipes])
+    }, [recipes])
 
+    // useEffect(() => {
+    //     if (_.isEmpty(paginatedRecipes)){
+    //         setData(paginatedRecipes);
+    //     }else{
+    //         const aremovedDuplicates = _.uniqBy(paginatedRecipes, 'slug');
+    //         setData(aremovedDuplicates);
+    //     }
+    // }, [paginatedRecipes])
+    // console.log('paginatedRecipes', paginatedRecipes)
     return (
         <div>
             <Meta 
                 title='Iranian Vegan | Recipes' 
                 description='A superb collection of fine iranian vegan recipes and history behind each recipe.'
             />
-            {data != null ? 
+            {paginatedRecipes != null ? 
                 (<div className='m-auto text-2xl bg-gray-primary'>
                     <div className='max-width-735 px-4 lg:px-0 mx-auto lg:flex lg:flex-wrap mt-10'>
-                        {!_.isEmpty(data) ?
-                            _.map(data, blog => {
+                        {!_.isEmpty(paginatedRecipes) ?
+                            _.map(paginatedRecipes, blog => {
                                 if(blog != undefined ) {
                                     if (!isEnglish && blog.farsiTitle == null) {
                                         if (blog.farsiTitle != null){
@@ -81,5 +83,14 @@ const  Index = ( props ) => {
         </div>
     )
 };
+
+
+export const getStaticProps = async () => {
+  const res = await contentfulClient.getEntries({
+    content_type: 'blogPost',
+  });
+  const recipes = res.items.map(item => item.fields);
+  return { props:{ recipes } }
+}
 
 export default Index;

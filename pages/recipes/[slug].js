@@ -6,7 +6,7 @@ import '../../assets/styles/main.css';
 import Header from '../../components/shared/Header';
 import Head from 'next/head';
 import { GrInstagram } from "react-icons/gr";
-import BlogDataContext from '../../components/BlogDataContext';
+import {AppDataContext} from '../../components/AppDataContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import _ from 'lodash';
@@ -51,7 +51,7 @@ const addJSONLD = (recipe) => {
                 {
                     "@type": "HowToStep",
                     "text": r.props.children[0],
-                    "url": `https://www.theiranianvegan.com/recepies/${recipe.slug}#step${instructionStepCount}`
+                    "url": `https://www.theiranianvegan.com/recipes/${recipe.slug}#step${instructionStepCount}`
                 }
             );
             instructionStepCount++;
@@ -63,7 +63,7 @@ const addJSONLD = (recipe) => {
                             {
                                 "@type": "HowToStep",
                                 "text": `"${p.props.children[0].props.children}"`,
-                                "url": `"https://www.theiranianvegan.com/recepies/${recipe.slug}#step${instructionStepCount}"`
+                                "url": `"https://www.theiranianvegan.com/recipes/${recipe.slug}#step${instructionStepCount}"`
                             }
 
                         );
@@ -74,7 +74,7 @@ const addJSONLD = (recipe) => {
                                 {
                                     "@type": "HowToStep",
                                     "text": `"${p.props.children[0].props.children[0]}"`,
-                                    "url": `"https://www.theiranianvegan.com/recepies/${recipe.slug}#step${instructionStepCount}"`
+                                    "url": `"https://www.theiranianvegan.com/recipes/${recipe.slug}#step${instructionStepCount}"`
                                 }
                             )
                             instructionStepCount++;
@@ -139,7 +139,7 @@ const addJSONLD = (recipe) => {
             "@type": "Recipe",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://www.theiranianvegan.com/recepies/${recipe.slug}"
+              "@id": "https://www.theiranianvegan.com/recipes/${recipe.slug}"
             },  
             "name": "${recipe.title}",
             "image": {
@@ -165,7 +165,7 @@ const addJSONLD = (recipe) => {
     }
 };
 const BlogPost = ({ blogPost }) => {
-    const { isEnglish } = useContext(BlogDataContext);
+    const { isEnglish } = useContext(AppDataContext);
     const [post, setPost] = useState(null);
     const myRef = useRef(null);
     const executeScroll = () => scrollToRef(myRef);
