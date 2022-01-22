@@ -2,18 +2,18 @@ import { useContext } from 'react';
 import '../assets/styles/main.css';
 import Link from 'next/link';
 import { GrInstagram } from "react-icons/gr";
-import {AppDataContext} from '../components/AppDataContext';
+import { AppDataContext } from '../components/AppDataContext';
 import Meta from '../components/shared/SeoMeta.js';
 
 const addJSONLD = () => {
   return {
-      __html: `[{
+    __html: `[{
         "@context": "https://schema.org",
         "@type": "WebPage",
         "@id": "https://theiranianvegan.com/#webpage",
         "url": "https://theiranianvegan.com/",
         "keywords": "iranian, vegan, iranian recipes",
-        "name": "Iranian Vegan | Home",
+        "name": "Iranian Vegan | Authentic Persan Recipes | Home",
         "datePublished": "2020-06-26T12:00:44+00:00",
         "inLanguage": "en-GB",
         "isPartOf": {
@@ -24,7 +24,8 @@ const addJSONLD = () => {
           "description": "Discover authentic iranian vegan recipes!",
           "inLanguage": "en-GB" 
         },
-        "description": "I believe in compassion. I think we have a duty to create a world that is more ethical and just than the one in which we were raised. For me, this duty extends to all forms of life.",
+        "description": "I believe we have a duty to create a world that is more ethical than the one in which we were raised. For me, 
+        this duty extends to all forms of life.",
         "publisher": {
             "@type": "Person",
             "name": "Mana Rose Shamshiri-Fard"
@@ -33,69 +34,75 @@ const addJSONLD = () => {
   }
 };
 
-const  HomePage = () => {
+const HomePage = () => {
   const { isEnglish, setIsEnglish } = useContext(AppDataContext);
   return (
     <div>
-        <Meta 
-          title='Iranian Vegan | Home' 
-          description='I believe in compassion. I think we have a duty to create a world that is more ethical and just than the one in which we were raised. For me, this duty extends to all forms of life.'
-        />
+      <Meta
+        title='Iranian Vegan | Authentic Persan Recipes | Home'
+        description='I believe we have a duty to create a world that is more ethical than the one in which we were raised. For me, 
+          this duty extends to all forms of life.'
+      />
 
-        <div className='h-screen w-screen  bg-no-repeat bg-cover bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >
-          <div style={{background: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3))', width: '100vw', height: '100vh'}} >
-            <div className='flex flex-col justify-between pt-12 pb-28 lg:justify-center items-center h-screen '>
-              <h1 className='italic text-3xl lg:text-7xl text-white font-bold z-50 main-logo lg:text-spaceping-4 mt-28' style={{textShadow: '6px 6px 0px rgba(0,0,0,0.1)'}} >THE    IRANIAN    VEGAN</h1>
+      <div className='h-screen w-screen  bg-no-repeat bg-cover bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >
+        <div style={{ background: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3))', width: '100vw', height: '100vh' }} >
+          <div className='flex flex-col justify-between pt-12 pb-28 lg:justify-center items-center h-screen '>
+            <h1
+              className='italic text-3xl lg:text-7xl text-white font-bold z-50 main-logo lg:text-spaceping-4 mt-28'
+              style={{ textShadow: '6px 6px 0px rgba(0,0,0,0.1)' }}
+            >
+              THE IRANIAN VEGAN
+            </h1>
 
-              <div className='flex flex-col justify-center items-center w-full'>
-                <div className='flex flex-col lg:flex-row items-center text-white w-5/7 min-h-24 max-w-26 tracking-wide z-50 justify-around'>
-                  <Link href="/recipes">
-                    {isEnglish 
-                      ? <h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>RECIPES</h2>
-                      : <h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>طرز تهیه غذاها</h2>
-                    }
-                  </Link>
+            <div className='flex flex-col justify-center items-center w-full'>
+              <div className='flex flex-col lg:flex-row items-center text-white w-5/7 min-h-24 max-w-26 tracking-wide z-50 justify-around'>
+                <Link href="/recipes">
+                  {isEnglish
+                    ? <h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>RECIPES</h2>
+                    : <h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>طرز تهیه غذاها</h2>
+                  }
+                </Link>
 
-                  <Link href="/about">
-                    {isEnglish 
-                      ? <h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>ABOUT</h2>
-                      : <h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>درباره من</h2>
-                    }
-                  </Link>
+                <Link href="/about">
+                  {isEnglish
+                    ? <h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>ABOUT</h2>
+                    : <h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>درباره من</h2>
+                  }
+                </Link>
 
-                  <a href="/contact">
-                    {isEnglish 
-                      ? <h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>CONTACT</h2>
-                      : <h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h2>
-                    }
-                  </a>
-                </div>
-
-                <a href='https://www.instagram.com/theiranianvegan/' className='text-white mt-10 z-50  hover:opacity-60 transform ease-in duration-100'> 
-                  <GrInstagram  size={30}/>
+                <a href="/contact">
+                  {isEnglish
+                    ? <h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>CONTACT</h2>
+                    : <h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h2>
+                  }
                 </a>
               </div>
-              
-              <div style={{top: '50px', right: '50px', backdropFilter: 'saturate(150%) blur(20px)', backgroundColor: 'rgba(255, 255, 255, 0.8)'}} className="absolute text-sm text-gray-500 leading-none rounded-full inline-flex">
-                <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? 'text-blue-400' : 'text-white'} rounded-l-full px-4 py-2`} onClick={() => setIsEnglish(true)}>
-                    <span>English</span>
-                </button>
-                <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? 'text-white' : 'text-blue-400'} rounded-r-full px-4 py-2`} onClick={() => setIsEnglish(false)}>
-                    <span>فارسی</span>
-                </button>
-              </div>
 
+              <a href='https://www.instagram.com/theiranianvegan/' className='text-white mt-10 z-50  hover:opacity-60 transform ease-in duration-100'>
+                <GrInstagram size={30} />
+              </a>
+            </div>
 
+            <div style={{ top: '50px', right: '50px', backdropFilter: 'saturate(150%) blur(20px)', backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
+              className="absolute text-sm text-gray-500 leading-none rounded-full inline-flex">
+              <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 
+                  ${isEnglish ? 'text-blue-400' : 'text-white'} rounded-l-full px-4 py-2`} onClick={() => setIsEnglish(true)}>
+                <span>English</span>
+              </button>
+              <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 
+                  ${isEnglish ? 'text-white' : 'text-blue-400'} rounded-r-full px-4 py-2`} onClick={() => setIsEnglish(false)}>
+                <span>فارسی</span>
+              </button>
             </div>
           </div>
-          
         </div>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={addJSONLD()}
-        /> 
+      </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={addJSONLD()}
+      />
     </div>
-    
+
   )
 }
 export default HomePage;

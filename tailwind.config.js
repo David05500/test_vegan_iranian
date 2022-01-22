@@ -7,6 +7,7 @@ module.exports = {
       backgroundImage: () => ({
         'desktop-home-image': "url('/manaHomePage__1_.webp')",
         'mobile-home-image': "url('/mobileHomePageImage.webp')",
+        "logo-image": "url('/logoImage.webp')"
       })
     },
     screens: {

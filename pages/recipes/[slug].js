@@ -6,12 +6,12 @@ import '../../assets/styles/main.css';
 import Header from '../../components/shared/Header';
 import Head from 'next/head';
 import { GrInstagram } from "react-icons/gr";
-import {AppDataContext} from '../../components/AppDataContext';
+import { AppDataContext } from '../../components/AppDataContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import _ from 'lodash';
 import moment from 'moment'
-import { timeInDecimals } from '../../helpers/helpers'
+import { timeInDecimals } from '../../helpers'
 import contentfulClient from '../../lib/contentful';
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - 220);
@@ -63,7 +63,7 @@ const addJSONLD = (recipe) => {
                             {
                                 "@type": "HowToStep",
                                 "text": `"${p.props.children[0].props.children}"`,
-                                "url": `"https://www.theiranianvegan.com/recipes/${recipe.slug}#step${instructionStepCount}"`
+                                "url": `https://www.theiranianvegan.com/recipes/${recipe.slug}#step${instructionStepCount}`
                             }
 
                         );
@@ -460,28 +460,28 @@ const BlogPost = ({ blogPost }) => {
 
 export const getStaticPaths = async (params) => {
     // fetch recipes
-    const res = await contentfulClient.getEntries({content_type: 'blogPost'});
+    const res = await contentfulClient.getEntries({ content_type: 'blogPost' });
     const recipes = res.items.map(item => item.fields);
 
     // Get the paths we want to pre-render based on posts
     const paths = []
     recipes.map(recipe => {
-      paths.push(
-        { params: { slug: String(recipe.slug)}}
-      )
+        paths.push(
+            { params: { slug: String(recipe.slug) } }
+        )
     })
     return {
-      paths,
-      // If an ID is requested that isn't defined here, fallback will incrementally generate the page
-      fallback: true,
+        paths,
+        // If an ID is requested that isn't defined here, fallback will incrementally generate the page
+        fallback: true,
     }
-  }
+}
 
-export const getStaticProps = async ({params}) => {
+export const getStaticProps = async ({ params }) => {
     const { slug } = params;
     const props = await getContentfulContent('blogPost', slug);
-    return { 
-        props: { blogPost: props.blogPost}, 
+    return {
+        props: { blogPost: props.blogPost },
         revalidate: 1
     }
 }
