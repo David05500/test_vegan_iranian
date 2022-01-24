@@ -1,185 +1,33 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import getContentfulContent from '../../lib/getContentfulContent';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
-import '../../assets/styles/main.css';
-import Header from '../../components/shared/Header';
-import Head from 'next/head';
 import { GrInstagram } from "react-icons/gr";
 import { AppDataContext } from '../../components/AppDataContext';
 import Image from 'next/image';
-import Link from 'next/link';
-import _ from 'lodash';
-import moment from 'moment'
-import { timeInDecimals } from '../../helpers'
+import { cloneDeep, map } from 'lodash';
 import contentfulClient from '../../lib/contentful';
+import Meta from '../../components/shared/SeoMeta.js'
+import { slugStructureData, options } from "../../helpers"
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - 220);
 
-// const Bold = ({ children }) => <p className="text-6xl text-green-700">{children}</p>;
-// const UlList = ({ children }) => <ul className="text-lg text-gray-700  list-disc">{children}</ul>;
-// const Text = ({ children }) => <p className="text-base text-justify">{children}</p>;
-// const OlList = ({ children }) => <ol className="text-lg text-red list-decimal">{children}</ol>;
-
-const HEADING1 = ({ children }) => <p className="align-center text-gray-800 text-xl">{children}</p>;
-const HEADING3 = ({ children }) => <p className="align-center text-gray-800 text-lg ">{children}</p>;
-const MyLink = ({ link, children }) => <Link href={`http://${link}`}><a className=" text-gray-600 pointer hover:opacity-60 transform ease-in duration-300">{children}</a></Link>;
-
-const ORDEREDLIST = ({ isEnglish, children }) => {
-    return (
-        <ol className="text-base lg:text-lg text-red  list-decimal" style={{ direction: isEnglish ? 'unset' : 'rtl', listStyle: isEnglish ? '' : 'persian', marginRight: isEnglish ? 'unset' : '1.5rem' }}>{children}</ol>
-    );
-};
-
-const LISTITEM = ({ node, children }) => {
-    if (!_.isEmpty(node.data) && node.data.type === 'instructions') {
-        return <li id={node.data.id}>{children}</li>
-    };
-    return (
-        <li>{children}</li>
-    );
-};
-
-
-const addJSONLD = (recipe) => {
-    let ingredientsArray = [];
-    let instructionsArray = [];
-    let instructionStepCount = 1;
-    _.map(documentToReactComponents(recipe.instructions), r => {
-        if (r.props.children.every(i => (typeof i === "string")) && r.props.children[0] !== '') {
-            instructionsArray.push(
-                {
-                    "@type": "HowToStep",
-                    "text": r.props.children[0],
-                    "url": `https://www.theiranianvegan.com/recipes/${recipe.slug}#step${instructionStepCount}`
-                }
-            );
-            instructionStepCount++;
-        } else if (r.props.children[0] != '') {
-            _.map(r.props.children, p => {
-                if (p.props != undefined) {
-                    if (p.props.children[0].props) {
-                        instructionsArray.push(
-                            {
-                                "@type": "HowToStep",
-                                "text": `"${p.props.children[0].props.children}"`,
-                                "url": `https://www.theiranianvegan.com/recipes/${recipe.slug}#step${instructionStepCount}`
-                            }
-
-                        );
-                        instructionStepCount++;
-                    } else {
-                        if (typeof p.props.children == 'array') {
-                            instructionsArray.push(
-                                {
-                                    "@type": "HowToStep",
-                                    "text": `"${p.props.children[0].props.children[0]}"`,
-                                    "url": `"https://www.theiranianvegan.com/recipes/${recipe.slug}#step${instructionStepCount}"`
-                                }
-                            )
-                            instructionStepCount++;
-                        }
-
-                    }
-                }
-            })
-        }
-    })
-    instructionsArray = JSON.stringify(instructionsArray);
-    _.map(documentToReactComponents(recipe.ingredients), i => {
-        if (i.props.children.every(i => (typeof i === "string"))) {
-            if (i.props.children[0] !== '') ingredientsArray.push(i.props.children[0])
-        } else if (i.props.children[0] != '') {
-
-            _.map(i.props.children, c => {
-                if (c !== "\n") {
-                    if (typeof c.props.children === "object") {
-                        c.props.children.map(i => ingredientsArray.push(i.props.children[0]))
-                    } else if (typeof c.props.children === "string") {
-                        ingredientsArray.push(c.props.children);
-                    } else {
-                        const dataToPush = c.props.children[0].props.children[0] | c.props.children[0]
-                        ingredientsArray.push(dataToPush)
-                    }
-                }
-            })
-        }
-    })
-    ingredientsArray = `[${ingredientsArray.map(s => `"${s}"`).join(', ')}]`;
-    const keywords = recipe.slug.split('-').join(', ')
-
-    const convertToIsoDate = (data) => {
-        if (data) {
-            const splitInput = data.split(" ").join("").match(/[a-z]+|[^a-z]+/gi);
-            let duration = moment.duration()
-
-            splitInput.map(i => {
-                if (/^\d+$/.test(i)) {
-                    let timeDefinition = (splitInput[splitInput.indexOf(i) + 1]).charAt(0);
-                    switch (timeDefinition) {
-                        case "h":
-                            timeDefinition = "hours"
-                            break;
-                        case "min":
-                            timeDefinition = "minutes"
-                            break;
-                        default:
-                            break;
-                    }
-                    duration.add(moment.duration(parseInt(i), timeDefinition))
-                }
-            })
-            return duration
-        }
-        return data
-    }
-    return {
-        __html: `[{
-            "@context": "https://schema.org/",
-            "@type": "Recipe",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://www.theiranianvegan.com/recipes/${recipe.slug}"
-            },  
-            "name": "${recipe.title}",
-            "image": {
-                "@type": "ImageObject",
-                "url": "${recipe.smallBlogPostImage.fields.file.url}"
-            },
-            "author": {
-              "@type": "Person",
-              "name": "Mana Rose Shamshiri-Fard"
-            },
-            "datePublished": "${recipe.createdAt}",
-            "description": "${recipe.shortDescription ? documentToReactComponents(recipe.shortDescription)[0].props.children[0] : ""}",
-            "prepTime": "${convertToIsoDate(recipe.prepTime)}",
-            "cookTime": "${convertToIsoDate(recipe.cookTime)}",
-            "totalTime": "${convertToIsoDate(recipe.totalTime)}",
-            "keywords": "${keywords}",
-            "recipeYield": "${recipe.servings}",
-            "recipeCategory": "${recipe.course}",
-            "recipeCuisine": "${recipe.cuisine}",
-            "recipeIngredient": ${ingredientsArray},
-            "recipeInstructions": ${_.isEmpty(instructionsArray) ? "[]" : `[${instructionsArray}]`}
-        }]`,
-    }
-};
 const BlogPost = ({ blogPost }) => {
     const { isEnglish } = useContext(AppDataContext);
     const [post, setPost] = useState(null);
     const myRef = useRef(null);
     const executeScroll = () => scrollToRef(myRef);
 
+    // Formatting recipe
     useEffect(() => {
-        const bruv = _.cloneDeep(blogPost);
+        const bruv = cloneDeep(blogPost);
         let stepHowToCount = 1;
-        _.map(bruv.instructions, (value, key) => {
+        map(bruv.instructions, (value, key) => {
             if (key == 'data') {
                 bruv.instructions[key] = { type: 'instructions' }
-                _.map(bruv.instructions.content, ol => {
+                map(bruv.instructions.content, ol => {
                     if (ol.nodeType == "ordered-list") {
-                        _.map(ol.content, iol => {
-                            _.map(iol, (value, key) => {
+                        map(ol.content, iol => {
+                            map(iol, (value, key) => {
                                 if (key == 'data') {
                                     iol[key] = {
                                         type: 'instructions',
@@ -195,36 +43,16 @@ const BlogPost = ({ blogPost }) => {
         })
         setPost(bruv);
     }, []);
-    const options = {
-        renderText: text => {
-            return text.split('\n').reduce((children, textSegment, index) => {
-                return [...children, index > 0 && <br key={index} />, textSegment];
-            }, []);
-        },
-        renderNode: {
-            [BLOCKS.PARAGRAPH]: (node, children) => <p className={`text-base mb-4 ${isEnglish ? 'lg:text-justify' : 'text-right'}`}>{children}</p>,
-            [BLOCKS.UL_LIST]: (node, children) => <ul className={`text-base lg:text-lg text-gray-700  list-disc`} style={{ direction: isEnglish ? 'unset' : 'rtl', marginRight: isEnglish ? 'unset' : '1.5rem' }}>{children}</ul>,
-            [BLOCKS.OL_LIST]: (node, children) => <ORDEREDLIST node={node} isEnglish={isEnglish}>{children}</ORDEREDLIST>,
-            [BLOCKS.HEADING_1]: (node, children) => <HEADING1>{children}</HEADING1>,
-            [BLOCKS.HEADING_3]: (node, children) => <HEADING3>{children}</HEADING3>,
-            [BLOCKS.LIST_ITEM]: (node, children) => <LISTITEM node={node}>{children}</LISTITEM>,
-            [BLOCKS.EMBEDDED_ASSET]: (node) => <img src={node.data.target.fields.file.url} className='my-10' />,
-            [INLINES.HYPERLINK]: (node, children) => <MyLink link={node.data.uri}>{children}</MyLink>,
-        },
-    };
 
     if (post == null) {
         return <h1>Loading...</h1>
     } else {
         return (
             <div>
-                <Head>
-                    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet" />
-                    <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Sacramento&display=swap" rel="stylesheet" />
-                    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"></link>
-                    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap" rel="stylesheet"></link>
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-                </Head>
+                <Meta
+                    title={post.title}
+                    description={post.recipeDescription}
+                />
                 <div className='m-auto text-2xl bg-gray-primary '>
                     <div className='max-width-735 px-4 mx-auto mt-10 lg:mt-20'>
 
@@ -238,21 +66,29 @@ const BlogPost = ({ blogPost }) => {
                         <div className='w-full flex justify-center mb-10'>
                             <button onClick={executeScroll} className='flex items-center px-4 py-3 bg-white rounded border-solid border border-gray-500 text-base flex'>
                                 <div className='w-8 text-gray-300 mr-3'>
-                                    <Image height="30" width="30" src="/cutlery.svg" />
+                                    <Image height="30" width="30" alt="Jump to recipe icon" src="/cutlery.svg" />
                                 </div>
                                 {isEnglish ? 'JUMP TO RECIPE' : 'دسترسی به طرز تهیه'}
                             </button>
                         </div>
 
-                        {documentToReactComponents(isEnglish ? post.recipeDescription : post.farsiRecipeDescription, options)}
+                        {documentToReactComponents(isEnglish ? post.recipeDescription : post.farsiRecipeDescription, options(isEnglish))}
 
                         {/* Recipe Card */}
 
                         <div ref={myRef} className='mb-8  lg:mx-16 p-2 lg:p-8 lg:mb-20 mt-48 relative shadow-md bg-white'>
                             <div className='w-48 absolute my-auto left-23 lg:left-34 top-9n h-64'>
-                                <div className='clip-polygon w-full h-full absolute' style={{ clipPath: 'polygon(50% 0, 100% 100%, 50% 100%, 0 50%)', backgroundSize: '62%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundImage: `url(${blogPost.smallBlogPostImage.fields.file.url})` }}>
+                                <div
+                                    className='clip-polygon w-full h-full absolute'
+                                    style={{
+                                        clipPath: 'polygon(50% 0, 100% 100%, 50% 100%, 0 50%)',
+                                        backgroundSize: '62%',
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'center',
+                                        backgroundImage: `url(${blogPost.smallBlogPostImage.fields.file.url})`
+                                    }}>
                                 </div>
-                                <img src="/paisley.png" className=' h-64 absolute text-gray-500' />
+                                <Image src="/paisley.webp" width="186" height="256" alt="Paisley leaf" className=' h-64 absolute text-gray-500' />
                             </div>
 
                             <div className='w-full mt-24 px-4 lg:px-0'>
@@ -380,47 +216,33 @@ const BlogPost = ({ blogPost }) => {
                                                 </div>
                                             )
                                         }
-
-                                        {/* <div className='w-1/2 flex items-center w-full lg:ml-4'>
-                                            <Image  height="20" width="20" src="/servings.svg"  className='w-5 text-gray-500 mr-3' />
-                                            <div className='flex'>
-                                                {isEnglish 
-                                                    ? <h1 className='self-center text-gray-600 text-sm mr-1 lg:mr-1'>Servings: </h1> 
-                                                    : <h1 className='self-center text-gray-600 text-sm mr-1 lg:mr-1'>وعده:</h1>
-                                                }
-                                                <h1 className='text-gray-800 font-medium text-base lg:text-lg'>{post.servings}</h1>
-                                            </div>
-                                        </div> */}
-
                                     </div>
                                 </div>
                             </div>
 
                             <div className='px-4 lg:px-8 bg-gray-primary lg:pb-8 py-5'>
-
                                 <div className='border-btm mb-10 mt-4 pb-8'>
                                     {isEnglish
                                         ? <h1 className="align-center text-gray-500 font-bold text-base mb-5">INGREDIENTS</h1>
                                         : <h1 className="align-center text-gray-500 font-bold text-2xl text-right mb-8">مواد لازم</h1>
                                     }
-                                    {documentToReactComponents(isEnglish ? post.ingredients : post.farsiIngredients, options)}
+                                    {documentToReactComponents(isEnglish ? post.ingredients : post.farsiIngredients, options(isEnglish))}
                                 </div>
-
 
                                 <div className='border-btm mb-10 pb-8'>
                                     {isEnglish
                                         ? <h1 className="align-center text-gray-500 font-bold text-base mb-8">INSTRUCTIONS</h1>
                                         : <h1 className="align-center text-gray-500 font-bold text-2xl text-right mb-8">طرز تهیه</h1>
                                     }
-                                    {documentToReactComponents(isEnglish ? post.instructions : post.farsiInstructions, options)}
+                                    {documentToReactComponents(isEnglish ? post.instructions : post.farsiInstructions, options(isEnglish))}
                                 </div>
 
                                 {isEnglish
-                                    ? <h1 className="align-center flex items-center text-gray-500 font-bold text-base mb-5 "><Image height="20" width="20" src="/notes.svg" className='w-5 text-gray-500 mr-3' />NOTES</h1>
-                                    : <h1 className="align-center flex items-center justify-end text-gray-500 font-bold text-2xl text-right mb-8  ">فوت و فن <Image height="20" width="20" src="/notes.svg" className='w-5 text-gray-500 ml-3' /></h1>
+                                    ? <h1 className="align-center flex items-center text-gray-500 font-bold text-base mb-5 "><Image height="20" width="20" alt="Notes logo" src="/notes.svg" className='w-5 text-gray-500 mr-3' />NOTES</h1>
+                                    : <h1 className="align-center flex items-center justify-end text-gray-500 font-bold text-2xl text-right mb-8  ">فوت و فن <Image height="20" width="20" alt="Notes logo" src="/notes.svg" className='w-5 text-gray-500 ml-3' /></h1>
                                 }
                                 <div className='bg-white p-4 pt-10 lg:p-8 mb-12 pb-8 cut-corrner'>
-                                    {documentToReactComponents(isEnglish ? post.notes : post.farsiNotes, options)}
+                                    {documentToReactComponents(isEnglish ? post.notes : post.farsiNotes, options(isEnglish))}
                                 </div>
                             </div>
 
@@ -450,7 +272,7 @@ const BlogPost = ({ blogPost }) => {
                 <div className='hidden'>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={addJSONLD(post)}
+                    dangerouslySetInnerHTML={slugStructureData(post)}
                 />
             </div>
         )

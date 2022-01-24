@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import Link from 'next/link';
-import '../../assets/styles/main.css';
 import Head from 'next/head';
-import contentfulClient from '../../lib/contentful';
 // import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, connectHits, connectSearchBox } from 'react-instantsearch-dom';
 import { AppDataContext } from '../AppDataContext';
@@ -48,9 +46,17 @@ const CustomSearchBox = connectSearchBox(SearchBox);
 const Header = props => {
   const refy = useRef();
   const [isShrink, setIsShrink] = useState(false);
-  const { isEnglish, setIsEnglish } = useContext(AppDataContext);
-
-  const { filteredRecipes, router, isSearching, setIsSearching, userSearchQuery, setUserSearchQuery, searchRef } = useContext(AppDataContext);
+  const {
+    filteredRecipes,
+    router,
+    isSearching,
+    setIsSearching,
+    userSearchQuery,
+    setUserSearchQuery,
+    searchRef,
+    isEnglish,
+    setIsEnglish
+  } = useContext(AppDataContext);
 
   const slug = router.pathname;
 

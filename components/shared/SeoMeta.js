@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { GA_TRACKING_ID } from '../../lib/gtag';
+// import { GA_TRACKING_ID } from '../../lib/gtag';
 
 const Meta = (props) => (
     <Head>
@@ -23,17 +23,17 @@ const Meta = (props) => (
         <link rel="canonical" href="" />
         <script type="text/javascript" src="" ></script>
 
-
+        <meta name="theme-color" content="#f1f3f5"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Sacramento&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap" rel="stylesheet"></link>
-        <script
+        {/* <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-        />
-        <script
+        /> */}
+        {/* <script
             dangerouslySetInnerHTML={{
                 __html: `
             window.dataLayer = window.dataLayer || [];
@@ -44,7 +44,7 @@ const Meta = (props) => (
             });
         `,
             }}
-        />
+        /> */}
     </Head>
 )
 export default Meta;

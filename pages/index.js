@@ -12,8 +12,8 @@ const addJSONLD = () => {
         "@type": "WebPage",
         "@id": "https://theiranianvegan.com/#webpage",
         "url": "https://theiranianvegan.com/",
-        "keywords": "iranian, vegan, iranian recipes",
-        "name": "Iranian Vegan | Authentic Persan Recipes | Home",
+        "keywords": "iranian, vegan, persian recipes",
+        "name": "Iranian Vegan | Authentic Persian Recipes | Home",
         "datePublished": "2020-06-26T12:00:44+00:00",
         "inLanguage": "en-GB",
         "isPartOf": {
@@ -24,8 +24,7 @@ const addJSONLD = () => {
           "description": "Discover authentic iranian vegan recipes!",
           "inLanguage": "en-GB" 
         },
-        "description": "I believe we have a duty to create a world that is more ethical than the one in which we were raised. For me, 
-        this duty extends to all forms of life.",
+        "description": "I believe we have a duty to create a world that is more ethical than the one in which we were raised. For me, this duty extends to all forms of life.",
         "publisher": {
             "@type": "Person",
             "name": "Mana Rose Shamshiri-Fard"
@@ -39,9 +38,8 @@ const HomePage = () => {
   return (
     <div>
       <Meta
-        title='Iranian Vegan | Authentic Persan Recipes | Home'
-        description='I believe we have a duty to create a world that is more ethical than the one in which we were raised. For me, 
-          this duty extends to all forms of life.'
+        title='Iranian Vegan | Authentic Persian Recipes | Home'
+        description='I believe we have a duty to create a world that is more ethical than the one in which we were raised.'
       />
 
       <div className='h-screen w-screen  bg-no-repeat bg-cover bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >

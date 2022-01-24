@@ -3,7 +3,7 @@ import reducer from './app.reducer'
 import { Provider } from '../components/AppDataContext'
 import { isEqual } from 'lodash';
 import { useRouter } from 'next/router';
-import * as gtag from '../lib/gtag';
+// import * as gtag from '../lib/gtag';
 
 const AppProvider = ({ children }) => {
     const [
@@ -37,13 +37,13 @@ const AppProvider = ({ children }) => {
     const router = useRouter();
     const updateSearchSuggestions = (data) => {
         let isEqual = true
-        if((data.length !== searchSuggestions.length) && data !== undefined) {
+        if ((data.length !== searchSuggestions.length) && data !== undefined) {
             // dispatch({ type: "UPDATE_VALUE", key: searchSuggestions, value: data })
         }
 
         data.forEach(suggestion => {
             if (!_.find(searchSuggestions, { 'slug': suggestion.fields.slug["en-US"] })) isEqual = false
-            if(!isEqual) return // dispatch({ type: "UPDATE_VALUE", key: searchSuggestions, value: data })
+            if (!isEqual) return // dispatch({ type: "UPDATE_VALUE", key: searchSuggestions, value: data })
         })
     }
     React.useEffect(() => {
@@ -52,20 +52,20 @@ const AppProvider = ({ children }) => {
         }
     }, [initialRecipes]);
 
-    React.useEffect(() => {
-        const handleRouteChange = (url) => {
-            gtag.pageview(url)
-        }
-        router.events.on('routeChangeComplete', handleRouteChange)
-        return () => {
-            router.events.off('routeChangeComplete', handleRouteChange)
-        }
-    }, [router.events])
+    // React.useEffect(() => {
+    //     const handleRouteChange = (url) => {
+    //         gtag.pageview(url)
+    //     }
+    //     router.events.on('routeChangeComplete', handleRouteChange)
+    //     return () => {
+    //         router.events.off('routeChangeComplete', handleRouteChange)
+    //     }
+    // }, [router.events])
 
 
     React.useEffect(() => {
         if (router.query.filter) {
-            dispatch({ type: "UPDATE_VALUE", key: "userSearchQuery", value:{ query: router.query.filter } })
+            dispatch({ type: "UPDATE_VALUE", key: "userSearchQuery", value: { query: router.query.filter } })
             const newArr = _.map(searchSuggestions, hit => {
                 const slug = hit.fields.slug["en-US"]
                 console.log(_.find(initialRecipes, { 'slug': slug }))
@@ -74,8 +74,8 @@ const AppProvider = ({ children }) => {
             console.log('newArr', newArr)
             dispatch({ type: "UPDATE_VALUE", key: "filteredRecipes", value: newArr })
         } else {
-            dispatch({ type: "UPDATE_VALUE", key: "userSearchQuery", value:{ query: router.query.filter } })
-            dispatch({ type: "UPDATE_VALUE", key: "filteredRecipes", value:  _.orderBy(initialRecipes, ['createdAt'], ['desc']) })
+            dispatch({ type: "UPDATE_VALUE", key: "userSearchQuery", value: { query: router.query.filter } })
+            dispatch({ type: "UPDATE_VALUE", key: "filteredRecipes", value: _.orderBy(initialRecipes, ['createdAt'], ['desc']) })
         }
     }, [router.query, initialRecipes])
 
@@ -104,7 +104,8 @@ const AppProvider = ({ children }) => {
                 next: () => dispatch({ type: "UPDATE_VALUE", key: "page", value: page + 1 }),
                 updateSearchSuggestions: updateSearchSuggestions,
                 setInitialRecipes: val => dispatch({ type: "UPDATE_VALUE", key: "initialRecipes", value: val }),
-                setUserSearchQuery: val => dispatch({ type: "UPDATE_VALUE", key: "userSearchQuery", value: val })
+                setUserSearchQuery: val => dispatch({ type: "UPDATE_VALUE", key: "userSearchQuery", value: val }),
+                setIsEnglish: val => dispatch({ type: "UPDATE_VALUE", key: "isEnglish", value: val })
             }}
         >
             {children}
