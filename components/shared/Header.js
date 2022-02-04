@@ -1,46 +1,9 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-// import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, connectHits, connectSearchBox } from 'react-instantsearch-dom';
 import { AppDataContext } from '../AppDataContext';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { options } from "../../helpers"
-// new
-import algoliasearch from 'algoliasearch';
-
-// ALGOLIA
-const searchClient = algoliasearch(process.env.ALGOLIA_APPLICATION_ID, process.env.ALGOLIA_ADMIN_API_KEY);
-
-const Hits = (data) => {
-  const { updateSearchSuggestions, searchSuggestions } = useContext(AppDataContext);
-  // data.hits !== undefined && !isEqual(searchSuggestions, data.hits) ? updateSearchSuggestions(data.hits) : null;
-  updateSearchSuggestions(data.hits)
-  return (null);
-};
-const CustomHits = connectHits(Hits)
-
-
-const SearchBox = ({ currentRefinement, isSearchStalled, refine, setIsSearching, updateSearchState, isEnglish, handleKeyDown, navigate, searchRef }) => (
-  <form noValidate action="" role="search" className="lg:mt-0 relative">
-    <input
-      ref={searchRef}
-      type="search"
-      value={currentRefinement}
-      onChange={event => updateSearchState(event.currentTarget.value)}
-      className={`search-input text-sm font-medium px-2 py-1 flex justify-center text-black items-center transform ease-in duration-100 ${isEnglish ? '' : 'text-right'}`}
-      placeholder={isEnglish ? 'Search here...' : '...جستجو'}
-      onFocus={() => navigate()}
-      // onBlur={() => setIsSearching(false)}
-      onKeyDown={(e) => handleKeyDown(e)}
-    />
-    <svg onClick={() => updateSearchState(null)} role="presentation" style={{ right: isEnglish ? '6%' : 'unset', left: isEnglish ? 'unset' : '6%' }} className="i-search w-3" viewBox="5 5 30 30" fill="none" stroke="currentcolor" color='gray' strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
-      <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
-    </svg>
-  </form>
-);
-
-const CustomSearchBox = connectSearchBox(SearchBox);
 
 // COMPONENT
 const Header = props => {
@@ -50,15 +13,14 @@ const Header = props => {
     filteredRecipes,
     router,
     isSearching,
-    setIsSearching,
     userSearchQuery,
-    setUserSearchQuery,
     searchRef,
     isEnglish,
     setIsEnglish
   } = useContext(AppDataContext);
 
   const slug = router.pathname;
+
 
   useEffect(() => {
     if (router.pathname === '/recipes' && window.innerWidth > 430) {
@@ -77,10 +39,14 @@ const Header = props => {
   const truncate = (str, value) => {
     return str.length > 10 ? str.substring(0, `${value}`) + "..." : str;
   };
-  const handleScroll = () => {
+  const handleScroll = (e) => {
     const posY = refy.current.getBoundingClientRect().top;
     const offset = window.pageYOffset - posY;
-    offset >= 200 ? isShrink ? '' : setIsShrink(true) : isShrink == false ? '' : setIsShrink(false);
+    if (offset > 146 && !isShrink) {
+      setIsShrink(true)
+    } else if (offset < 40 && isShrink) {
+      setIsShrink(false)
+    }
   };
 
   const handleKeyDown = (event) => {
@@ -135,10 +101,10 @@ const Header = props => {
               {isEnglish
                 ? (
                   <div className='bg-white px-4 py-4 flex flex-col shadow-lg' >
-                    <h4 className='text-sm mb-4 pointer opacity-75 hover:opacity-100' onClick={() => updateSearchState('Appetizers')}>Appetizers</h4>
+                    <h4 className='text-sm mb-4 pointer opacity-75 hover:opacity-100' onClick={() => updateSearchState('Appetizer')}>Appetizers</h4>
                     <h4 className='text-sm mb-4 pointer opacity-75 hover:opacity-100' onClick={() => updateSearchState('Main Course')}>Main Course</h4>
                     <h4 className='text-sm mb-4 pointer opacity-75 hover:opacity-100' onClick={() => updateSearchState('Dessert')}>Desserts</h4>
-                    <h4 className='text-sm pointer opacity-75 hover:opacity-100' onClick={() => updateSearchState('Sides')}>Sides</h4>
+                    <h4 className='text-sm pointer opacity-75 hover:opacity-100' onClick={() => updateSearchState('Side')}>Sides</h4>
                   </div>
                 )
                 : (
@@ -168,15 +134,22 @@ const Header = props => {
 
         </div>
         <div className='mt-4 flex justify-center items-center w-full md:w-auto  md:absolute lg:right-185px lg:bottom-12px'>
-          <InstantSearch
-            indexName="prod_TheIranianVegan"
-            searchClient={searchClient}
-            searchState={userSearchQuery}
-          >
-            <CustomSearchBox reset={<img src='' alt="" />} searchRef={searchRef} navigate={navigate} handleKeyDown={handleKeyDown} updateSearchState={updateSearchState} isEnglish={isEnglish} />
-            {/* <CustomSearchBox reset={<img src='' alt="" />} setIsSearching={setIsSearching} searchRef={searchRef} navigate={navigate} handleKeyDown={handleKeyDown} updateSearchState={updateSearchState} isEnglish={isEnglish}/> */}
-            <CustomHits userSearchQuery={userSearchQuery} />
-          </InstantSearch>
+          <form noValidate action="" role="search" className="lg:mt-0 relative">
+            <input
+              ref={searchRef}
+              type="search"
+              value={userSearchQuery.query}
+              onChange={event => updateSearchState(event.currentTarget.value)}
+              className={`search-input text-sm font-medium px-2 py-1 flex justify-center text-black items-center transform ease-in duration-100 ${isEnglish ? '' : 'text-right'}`}
+              placeholder={isEnglish ? 'Search here...' : '...جستجو'}
+              onFocus={() => navigate()}
+              // onBlur={() => setIsSearching(false)}
+              onKeyDown={(e) => handleKeyDown(e)}
+            />
+            <svg onClick={() => updateSearchState(null)} role="presentation" style={{ right: isEnglish ? '6%' : 'unset', left: isEnglish ? 'unset' : '6%' }} className="i-search w-3" viewBox="5 5 30 30" fill="none" stroke="currentcolor" color='gray' strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
+              <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+          </form>
           <div style={{ zIndex: '1111111111', backdropFilter: 'saturate(150%) blur(20px)' }} className="ml-4 text-sm text-gray-500 leading-none border-2 border-gray-200 rounded-full inline-flex block md:hidden">
             <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? 'text-blue-400' : ''} rounded-md px-4 py-2`} onClick={() => setIsEnglish(true)}>
               <span>En</span>

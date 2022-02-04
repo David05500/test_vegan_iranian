@@ -14,15 +14,6 @@ const Index = ({ recipes }) => {
         }
     }, [recipes])
 
-    // useEffect(() => {
-    //     if (_.isEmpty(paginatedRecipes)){
-    //         setData(paginatedRecipes);
-    //     }else{
-    //         const aremovedDuplicates = _.uniqBy(paginatedRecipes, 'slug');
-    //         setData(aremovedDuplicates);
-    //     }
-    // }, [paginatedRecipes])
-    // console.log('paginatedRecipes', paginatedRecipes)
     return (
         <div>
             <Meta
@@ -83,7 +74,6 @@ const Index = ({ recipes }) => {
         </div>
     )
 };
-
 
 export const getStaticProps = async () => {
     const res = await contentfulClient.getEntries({

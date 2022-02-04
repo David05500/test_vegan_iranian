@@ -34,18 +34,21 @@ const AppProvider = ({ children }) => {
         searchRef: useRef(),
         recipesLoading: true
     })
+
     const router = useRouter();
+
     const updateSearchSuggestions = (data) => {
         let isEqual = true
         if ((data.length !== searchSuggestions.length) && data !== undefined) {
-            // dispatch({ type: "UPDATE_VALUE", key: searchSuggestions, value: data })
+            dispatch({ type: "UPDATE_VALUE", key: searchSuggestions, value: data })
         }
 
         data.forEach(suggestion => {
             if (!_.find(searchSuggestions, { 'slug': suggestion.fields.slug["en-US"] })) isEqual = false
-            if (!isEqual) return // dispatch({ type: "UPDATE_VALUE", key: searchSuggestions, value: data })
+            if (!isEqual) return dispatch({ type: "UPDATE_VALUE", key: searchSuggestions, value: data })
         })
     }
+
     React.useEffect(() => {
         if (initialRecipes) {
             dispatch({ type: "UPDATE_VALUE", key: "filteredRecipes", value: _.orderBy(initialRecipes, ['createdAt'], ['desc']) })
@@ -62,16 +65,34 @@ const AppProvider = ({ children }) => {
     //     }
     // }, [router.events])
 
+    React.useEffect(() => {
+        let arr = []
+        arr = initialRecipes && initialRecipes.filter(recipe => {
+            if ((recipe && recipe.title.toUpperCase().includes(userSearchQuery.query ? userSearchQuery.query.toUpperCase() : userSearchQuery.query))
+                || (recipe.course && recipe.course.toUpperCase().includes(userSearchQuery.query ? userSearchQuery.query.toUpperCase() : userSearchQuery.query))) return recipe
+        })
+        if (!arr || arr.length === 0) {
+            arr = initialRecipes && initialRecipes.filter(recipe => {
+                const title = recipe.title ? recipe.title.split(" ").map(name => name.toUpperCase()) : []
+                const course = recipe.course ? recipe.course.split(" ").map(name => name.toUpperCase()) : []
+                const searchQuery = userSearchQuery.query ? userSearchQuery.query.split(" ").map(name => name.toUpperCase()) : []
+                let isPresent = []
+                searchQuery && searchQuery.map(item => {
+                    if (title.includes(item) || course.includes(item)) isPresent.push(true)
+                })
+                if (isPresent.length > 0) return recipe
+            })
+        }
+        if (arr && arr.length > 0) dispatch({ type: "UPDATE_VALUE", key: "filteredRecipes", value: _.orderBy(arr, ['createdAt'], ['desc']) })
+    }, [userSearchQuery])
 
     React.useEffect(() => {
         if (router.query.filter) {
             dispatch({ type: "UPDATE_VALUE", key: "userSearchQuery", value: { query: router.query.filter } })
             const newArr = _.map(searchSuggestions, hit => {
                 const slug = hit.fields.slug["en-US"]
-                console.log(_.find(initialRecipes, { 'slug': slug }))
                 return _.find(initialRecipes, { 'slug': slug })
             })
-            console.log('newArr', newArr)
             dispatch({ type: "UPDATE_VALUE", key: "filteredRecipes", value: newArr })
         } else {
             dispatch({ type: "UPDATE_VALUE", key: "userSearchQuery", value: { query: router.query.filter } })
