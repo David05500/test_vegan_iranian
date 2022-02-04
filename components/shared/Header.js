@@ -73,6 +73,7 @@ const Header = props => {
       }, undefined, { shallow: true })
     }
   };
+  console.log("userSearchQuery.query", userSearchQuery.query)
 
   return (
     <div className='sticky top-0 z-50'>
@@ -138,7 +139,7 @@ const Header = props => {
             <input
               ref={searchRef}
               type="search"
-              value={userSearchQuery.query}
+              value={userSearchQuery.query ? userSearchQuery.query : ""}
               onChange={event => updateSearchState(event.currentTarget.value)}
               className={`search-input text-sm font-medium px-2 py-1 flex justify-center text-black items-center transform ease-in duration-100 ${isEnglish ? '' : 'text-right'}`}
               placeholder={isEnglish ? 'Search here...' : '...جستجو'}
@@ -146,7 +147,7 @@ const Header = props => {
               // onBlur={() => setIsSearching(false)}
               onKeyDown={(e) => handleKeyDown(e)}
             />
-            <svg onClick={() => updateSearchState(null)} role="presentation" style={{ right: isEnglish ? '6%' : 'unset', left: isEnglish ? 'unset' : '6%' }} className="i-search w-3" viewBox="5 5 30 30" fill="none" stroke="currentcolor" color='gray' strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
+            <svg onClick={() => updateSearchState("")} role="presentation" style={{ right: isEnglish ? '6%' : 'unset', left: isEnglish ? 'unset' : '6%' }} className="i-search w-3" viewBox="5 5 30 30" fill="none" stroke="currentcolor" color='gray' strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
               <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
             </svg>
           </form>
