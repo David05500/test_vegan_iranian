@@ -39,6 +39,7 @@ textarea:focus {
 }
 html {
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 body {
   background: #f1f3f5;

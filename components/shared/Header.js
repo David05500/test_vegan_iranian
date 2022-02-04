@@ -73,7 +73,6 @@ const Header = props => {
       }, undefined, { shallow: true })
     }
   };
-  console.log("userSearchQuery.query", userSearchQuery.query)
 
   return (
     <div className='sticky top-0 z-50'>
