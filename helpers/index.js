@@ -6,7 +6,7 @@ export * from "./structuredData"
 
 const HEADING1 = ({ children }) => <p className="align-center text-gray-800 text-xl">{children}</p>;
 const HEADING3 = ({ children }) => <p className="align-center text-gray-800 text-lg ">{children}</p>;
-const MyLink = ({ link, children }) => <Link href={`http://${link}`}><a className=" text-gray-600 pointer hover:opacity-60 transform ease-in duration-300">{children}</a></Link>;
+const MyLink = ({ link, children }) => <Link href={`${link}`}><a className="text-gray-600 pointer hover:opacity-60 transform ease-in duration-300">{children}</a></Link>;
 
 const ORDEREDLIST = ({ isEnglish, children }) => {
     return (

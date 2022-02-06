@@ -1,6 +1,10 @@
-const withCss = require('@zeit/next-css');
+const withPlugins = require('next-compose-plugins')
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+    enabled: process.env.ANALYZE === "true",
+});
 
-module.exports = withCss({
+const withCss = require('@zeit/next-css')({
+    swcMinify: true,
     images: {
         domains: ["images.ctfassets.net", "localhost"],
     },
@@ -9,3 +13,5 @@ module.exports = withCss({
         ALGOLIA_ADMIN_API_KEY: 'b2d2aee15183a79abf4b3c29debfa450',
     }
 });
+
+module.exports = withPlugins([withCss, [withBundleAnalyzer]], {})

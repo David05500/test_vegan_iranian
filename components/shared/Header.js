@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
 import { AppDataContext } from '../AppDataContext';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { options } from "../../helpers"
@@ -76,11 +75,7 @@ const Header = props => {
 
   return (
     <div className='sticky top-0 z-50'>
-      <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap" rel="stylesheet"></link>
-      </Head>
       <nav ref={refy} className={`max-width-1170 bg-gray-1000 border-btm  left-0 m-auto flex flex-col justify-center items-center z-150 py-4 relative`}>
-
         <Link href="/">
           <h1 className={`italic relative z-10 text-3xl  text-black font-bold my-4 
           ${isShrink ? 'lg:m-0 mb-4 lg:text-6xl transform ease-in duration-200' : 'lg:my-8 lg:text-65xl transform ease-in duration-200 '} 
@@ -93,8 +88,8 @@ const Header = props => {
           <div className="dropdown">
             <Link href="/recipes" >
               {isEnglish
-                ? <h4 className='pointer text-sm font-medium  hover:opacity-60 transform ease-in duration-100 pointer'>RECIPES</h4>
-                : <h4 className='pointer text-lg font-medium  hover:opacity-60 transform ease-in duration-100 pointer'>طرز تهیه غذاها</h4>
+                ? <a><h4 className='pointer text-sm font-medium  hover:opacity-60 transform ease-in duration-100 pointer'>RECIPES</h4></a>
+                : <a><h4 className='pointer text-lg font-medium  hover:opacity-60 transform ease-in duration-100 pointer'>طرز تهیه غذاها</h4></a>
               }
             </Link>
             <div className="dropdown-content">
@@ -120,15 +115,15 @@ const Header = props => {
 
           <Link href="/about">
             {isEnglish
-              ? <h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100'>ABOUT</h4>
-              : <h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100' >درباره من</h4>
+              ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100'>ABOUT</h4></a>
+              : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100' >درباره من</h4></a>
             }
           </Link>
 
           <Link href="/contact">
             {isEnglish
-              ? <h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100'>CONTACT</h4>
-              : <h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4>
+              ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100'>CONTACT</h4></a>
+              : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
             }
           </Link>
 

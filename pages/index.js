@@ -56,24 +56,24 @@ const HomePage = () => {
               <div className='flex flex-col lg:flex-row items-center text-white w-5/7 min-h-24 max-w-26 tracking-wide z-50 justify-around'>
                 <Link href="/recipes">
                   {isEnglish
-                    ? <h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>RECIPES</h2>
-                    : <h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>طرز تهیه غذاها</h2>
+                    ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>RECIPES</h2></a>
+                    : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>طرز تهیه غذاها</h2></a>
                   }
                 </Link>
 
                 <Link href="/about">
                   {isEnglish
-                    ? <h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>ABOUT</h2>
-                    : <h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>درباره من</h2>
+                    ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>ABOUT</h2></a>
+                    : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>درباره من</h2></a>
                   }
                 </Link>
 
-                <a href="/contact">
+                <Link href="/contact">
                   {isEnglish
-                    ? <h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>CONTACT</h2>
-                    : <h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h2>
+                    ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>CONTACT</h2></a>
+                    : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h2></a>
                   }
-                </a>
+                </Link>
               </div>
 
               <a href='https://www.instagram.com/theiranianvegan/' className='text-white mt-10 z-50  hover:opacity-60 transform ease-in duration-100'>
@@ -93,13 +93,13 @@ const HomePage = () => {
               </button>
             </div>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={addJSONLD()}
       />
-    </div>
+    </div >
 
   )
 }

@@ -6,16 +6,13 @@ class MyDocument extends Document {
     render() {
         return (
             <Html lang="en">
-                <Head />
-                {/* <Head>
+                <Head>
                     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet" />
                     <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Sacramento&display=swap" rel="stylesheet" />
                     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" rel="stylesheet"></link>
                     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap" rel="stylesheet"></link>
                     <link rel="shortcut icon" href="/favicon-32x32.png" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-                    
-                </Head> */}
+                </Head>
                 <body>
                     <Main />
                     <NextScript />

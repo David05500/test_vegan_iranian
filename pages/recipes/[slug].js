@@ -66,7 +66,12 @@ const BlogPost = ({ blogPost }) => {
                         <div className='w-full flex justify-center mb-10'>
                             <button onClick={executeScroll} className='flex items-center px-4 py-3 bg-white rounded border-solid border border-gray-500 text-base flex'>
                                 <div className='w-8 text-gray-300 mr-3'>
-                                    <Image height="30" width="30" alt="Jump to recipe icon" src="/cutlery.svg" />
+                                    <Image
+                                        height="30"
+                                        width="30"
+                                        alt="Jump to recipe icon"
+                                        src="/cutlery.svg"
+                                    />
                                 </div>
                                 {isEnglish ? 'JUMP TO RECIPE' : 'دسترسی به طرز تهیه'}
                             </button>
@@ -88,7 +93,13 @@ const BlogPost = ({ blogPost }) => {
                                         backgroundImage: `url(${blogPost.smallBlogPostImage.fields.file.url})`
                                     }}>
                                 </div>
-                                <Image src="/paisley.webp" width="186" height="256" alt="Paisley leaf" className=' h-64 absolute text-gray-500' />
+                                <Image
+                                    src="/paisley.webp"
+                                    width="186"
+                                    height="256"
+                                    alt="Paisley leaf"
+                                    className=' h-64 absolute text-gray-500'
+                                />
                             </div>
 
                             <div className='w-full mt-24 px-4 lg:px-0'>
@@ -114,7 +125,12 @@ const BlogPost = ({ blogPost }) => {
                                                     <h4 className='self-center text-gray-600 text-sm  ml-2'>:نوع وعده</h4>
                                                 </div>
                                                 <div className='w-5 text-gray-500 ml-3'>
-                                                    <Image height="20" width="20" src="/course.svg" alt='Course icon' />
+                                                    <Image
+                                                        height="20"
+                                                        width="20"
+                                                        src="/course.svg"
+                                                        alt='Course icon'
+                                                    />
                                                 </div>
                                             </div>
                                         )
@@ -125,7 +141,12 @@ const BlogPost = ({ blogPost }) => {
                                             ? (
                                                 <div className='w-1/2 flex items-center w-full lg:ml-4 mb-6'>
                                                     <div className='w-5 text-gray-500 mr-3'>
-                                                        <Image height="20" width="20" src="/prep-time.svg" alt='Prep time icon' />
+                                                        <Image
+                                                            height="20"
+                                                            width="20"
+                                                            src="/prep-time.svg"
+                                                            alt='Prep time icon'
+                                                        />
                                                     </div>
                                                     <div className='flex'>
                                                         <h4 className='self-center text-gray-600 text-sm mr-1 lg:mr-1'>Prep Time: </h4>
@@ -138,7 +159,12 @@ const BlogPost = ({ blogPost }) => {
                                                     <p className='text-gray-800 font-medium text-sm lg:text-base  '>{post.servings}</p>
                                                     <h4 className='self-center text-gray-600 text-sm ml-3 text-right'>:تعداد سرو</h4>
                                                     <div className='w-5 text-gray-500 ml-3'>
-                                                        <Image height="20" width="20" src="/servings.svg" alt='Servings icon' />
+                                                        <Image
+                                                            height="20"
+                                                            width="20"
+                                                            src="/servings.svg"
+                                                            alt='Servings icon'
+                                                        />
                                                     </div>
                                                 </div>
                                             )
@@ -148,7 +174,12 @@ const BlogPost = ({ blogPost }) => {
                                             ? (
                                                 <div className='w-1/2 flex items-center w-full lg:ml-4 mb-6'>
                                                     <div className='w-5 text-gray-500 mr-3'>
-                                                        <Image height="20" width="20" src="/cook-time.svg" alt='Cook time icon' />
+                                                        <Image
+                                                            height="20"
+                                                            width="20"
+                                                            src="/cook-time.svg"
+                                                            alt='Cook time icon'
+                                                        />
                                                     </div>
                                                     <div className='flex'>
                                                         <h4 className='self-center text-gray-600 text-sm mr-1 lg:mr-1'>Cook Time: </h4>
@@ -162,7 +193,12 @@ const BlogPost = ({ blogPost }) => {
                                                     <p className='text-gray-800 font-medium text-sm lg:text-base  '>{post.prepTime}</p>
                                                     <h4 className='self-center text-gray-600 text-sm ml-3 text-right'>:آماده سازی</h4>
                                                     <div className='w-5 text-gray-500 ml-3'>
-                                                        <Image height="20" width="20" src="/prep-time.svg" alt='Prep time icon' />
+                                                        <Image
+                                                            height="20"
+                                                            width="20"
+                                                            src="/prep-time.svg"
+                                                            alt="Prep time icon"
+                                                        />
                                                     </div>
                                                 </div>
                                             )
@@ -175,7 +211,12 @@ const BlogPost = ({ blogPost }) => {
                                             ? (
                                                 <div className='w-1/2 flex items-center w-full lg:ml-4 mb-6'>
                                                     <div className='w-5 text-gray-500 mr-3'>
-                                                        <Image height="20" width="20" src="/total-time.svg" alt='Total time icon' />
+                                                        <Image
+                                                            height="20"
+                                                            width="20"
+                                                            src="/total-time.svg"
+                                                            alt='Total time icon'
+                                                        />
                                                     </div>
                                                     <div className='flex'>
                                                         <h4 className='self-center text-gray-600 text-sm mr-1 lg:mr-1'>Total Time: </h4>
@@ -188,7 +229,12 @@ const BlogPost = ({ blogPost }) => {
                                                     <p className='text-gray-800 font-medium text-sm lg:text-base  '>{post.totalTime}</p>
                                                     <h4 className='self-center text-gray-600 text-sm ml-3 text-right'>:کل مدت زمان مورد نیاز</h4>
                                                     <div className='w-5 text-gray-500 ml-3'>
-                                                        <Image height="20" width="20" src="/total-time.svg" alt='Total time icon' />
+                                                        <Image
+                                                            height="20"
+                                                            width="20"
+                                                            src="/total-time.svg"
+                                                            alt='Total time icon'
+                                                        />
                                                     </div>
                                                 </div>
                                             )
@@ -198,7 +244,12 @@ const BlogPost = ({ blogPost }) => {
                                             ? (
                                                 <div className='w-1/2 flex items-center w-full lg:ml-4 mb-6'>
                                                     <div className='w-5 text-gray-500 mr-3'>
-                                                        <Image height="20" width="20" src="/servings.svg" alt='Servings icon' />
+                                                        <Image
+                                                            height="20"
+                                                            width="20"
+                                                            src="/servings.svg"
+                                                            alt='Servings icon'
+                                                        />
                                                     </div>
                                                     <div className='flex'>
                                                         <h4 className='self-center text-gray-600 text-sm mr-1 lg:mr-1'>Servings: </h4>
@@ -211,7 +262,12 @@ const BlogPost = ({ blogPost }) => {
                                                     <p className='text-gray-800 font-medium text-sm lg:text-base  '>{post.cookTime}</p>
                                                     <h4 className='self-center text-gray-600 text-sm  ml-3 lg:ml-2 text-right'>:مدت زمان پخت</h4>
                                                     <div className='w-5 text-gray-500 ml-3'>
-                                                        <Image height="20" width="20" src="/cook-time.svg" alt='Cook time icon' />
+                                                        <Image
+                                                            height="20"
+                                                            width="20"
+                                                            src="/cook-time.svg"
+                                                            alt='Cook time icon'
+                                                        />
                                                     </div>
                                                 </div>
                                             )
