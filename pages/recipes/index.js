@@ -58,7 +58,6 @@ const Index = ({ recipes }) => {
                                                     alt="Jump to recipe icon"
                                                     src={`https://${blog.smallBlogPostImage.fields.file.url}`}
                                                     className='m-auto mb-4 relative pointer hover:opacity-60 transform ease-in duration-100 '
-                                                    prirotiy="true"
                                                 />
                                                 <h2 className={`text-xs text-center px-4 transform ease-in duration-100 ${isEnglish ? 'text-xs' : 'text-base'}`}>{isEnglish ? blog.title : blog.farsiTitle}</h2>
                                             </a>
