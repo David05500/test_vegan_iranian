@@ -394,7 +394,6 @@ module.exports = {
       '7': '1.75rem',
     },
     listStyleType: {
-      none: 'none',
       disc: 'disc',
       decimal: 'decimal',
     },
