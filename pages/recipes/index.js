@@ -50,17 +50,25 @@ const Index = ({ recipes }) => {
                                 return (
                                     <div key={blog.slug} className='lg:w-1/3 p-2'>
                                         <Link href='/recipes/[slug]' as={`/recipes/${blog.slug}/`}>
-                                            <a>
+                                            {/* <a>
                                                 <Image
                                                     height="345"
                                                     width="270"
                                                     objectFit='cover'
                                                     alt="Jump to recipe icon"
-                                                    src={`${blog.smallBlogPostImage.fields.file.url}`}
+                                                    src={`https://${blog.smallBlogPostImage.fields.file.url}`}
                                                     className='m-auto mb-4 relative pointer hover:opacity-60 transform ease-in duration-100 '
                                                 />
                                                 <h2 className={`text-xs text-center px-4 transform ease-in duration-100 ${isEnglish ? 'text-xs' : 'text-base'}`}>{isEnglish ? blog.title : blog.farsiTitle}</h2>
-                                            </a>
+                                            </a> */}
+                                            <>
+                                                <div className='m-auto mb-4 relative pointer max-w-280px max-h-284px min-h-284px min-w-228px lg:max-w-228px   pointer hover:opacity-60 transform ease-in duration-100 '
+                                                    style={{ backgroundSize: '50%', backgroundImage: `url(${blog.smallBlogPostImage.fields.file.url})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                                                </div>
+                                                <div >
+                                                    <h2 className={`text-xs text-center px-4 transform ease-in duration-100 ${isEnglish ? 'text-xs' : 'text-base'}`}>{isEnglish ? blog.title : blog.farsiTitle}</h2>
+                                                </div>
+                                            </>
                                         </Link>
                                     </div>
                                 )
