@@ -20,7 +20,7 @@ const Index = ({ recipes }) => {
         if (inView) next()
     }, [inView])
 
-    if (!paginatedRecipes || _.isEmpty(paginatedRecipes)) return <div>Loading</div>
+    if (!paginatedRecipes || _.isEmpty(paginatedRecipes)) return <div></div>
     return (
         <div>
             <Meta

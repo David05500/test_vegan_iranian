@@ -45,7 +45,7 @@ const BlogPost = ({ blogPost }) => {
     }, []);
 
     if (post == null) {
-        return <p>Loading...</p>
+        return <p></p>
     } else {
         return (
             <div>
