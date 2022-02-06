@@ -66,7 +66,7 @@ export const slugStructureData = (recipe) => {
             })
         }
     })
-    ingredientsArray = `[${ingredientsArray.map(s => `"${s}"`).join(', ')}]`;
+    ingredientsArray = `[${ingredientsArray.map(s => `${JSON.stringify(s)}`).join(', ')}]`;
     const keywords = recipe.slug.split('-').join(', ')
 
     const convertToIsoDate = (data) => {
@@ -98,7 +98,7 @@ export const slugStructureData = (recipe) => {
         __html: `[{
             "@context": "https://schema.org/",
             "@type": "Recipe",
-            "name": "${JSON.stringify(recipe.title)}",
+            "name": ${JSON.stringify(recipe.title)},
             "image": {
                 "@type": "ImageObject",
                 "url": "${recipe.smallBlogPostImage.fields.file.url}"
