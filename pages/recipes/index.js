@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { AppDataContext } from '../../components/AppDataContext';
 import Meta from '../../components/shared/SeoMeta.js';
 import contentfulClient from '../../lib/contentful';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { recipesStructureData } from "../../helpers"
 
@@ -25,7 +25,7 @@ const Index = ({ recipes }) => {
         <div>
             <Meta
                 title='Iranian Vegan | Recipes'
-                description='A superb collection of fine iranian vegan recipes and history behind each recipe.'
+                description='A superb collection of fine persian vegan recipes and history behind each recipe.'
             />
             <div className='m-auto text-2xl bg-gray-primary'>
                 <div className='max-width-735 px-4 lg:px-0 mx-auto lg:flex lg:flex-wrap mt-10'>

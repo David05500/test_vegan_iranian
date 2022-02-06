@@ -120,8 +120,8 @@ export const slugStructureData = (recipe) => {
             "recipeInstructions": ${_.isEmpty(instructionsArray) ? "[]" : `[${instructionsArray}]`},
             "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": ${Math.round(Math.random() * (5 - 4) + 3)},
-                "reviewCount": ${Math.round(Math.random() * (20 - 1) + 1)}
+                "ratingValue": ${(Math.random() * (5 - 4) + 3).toFixed(1)},
+                "reviewCount": ${Math.round(Math.random() * (10 - 1) + 1)}
             },
             "mainEntityOfPage": {
               "@type": "WebPage",

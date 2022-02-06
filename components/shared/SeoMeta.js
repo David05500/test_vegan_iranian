@@ -1,10 +1,10 @@
 import Head from 'next/head'
 // import { GA_TRACKING_ID } from '../../lib/gtag';
 
-const Meta = (props) => (
+const Meta = ({ title, description, desc }) => (
     <Head>
-        <title>{props.title}</title>
-        <meta name="description" content={props.description} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <meta property="og:type" content="website" />
         <meta name="og:title" property="og:title" content="" />
         <meta name="og:description" property="og:description" content="" />
@@ -12,7 +12,7 @@ const Meta = (props) => (
         <meta property="og:url" content="" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="" />
-        <meta name="twitter:description" content={props.desc} />
+        <meta name="twitter:description" content={desc} />
         <meta name="twitter:site" content="" />
         <meta name="twitter:creator" content="" />
         <link rel="icon" type="image/png" href="/favicon-32x32.png" />

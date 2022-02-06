@@ -51,7 +51,7 @@ const BlogPost = ({ blogPost }) => {
             <div>
                 <Meta
                     title={post.title}
-                    description={post.recipeDescription}
+                    description={post.shortDescription.content[0].content[0].value}
                 />
                 <div className='m-auto text-2xl bg-gray-primary '>
                     <div className='max-width-735 px-4 mx-auto mt-10 lg:mt-20'>
