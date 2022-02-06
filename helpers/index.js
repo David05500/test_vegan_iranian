@@ -10,7 +10,7 @@ const MyLink = ({ link, children }) => <Link href={`${link}`}><a className="text
 
 const ORDEREDLIST = ({ isEnglish, children }) => {
     return (
-        <ol className="text-base lg:text-lg text-red  list-decimal" style={{ direction: isEnglish ? 'unset' : 'rtl', listStyle: isEnglish ? '' : 'persian', marginRight: isEnglish ? 'unset' : '1.5rem' }}>{children}</ol>
+        <ol className="text-base lg:text-lg text-red  list-decimal" style={{ direction: isEnglish ? 'unset' : 'rtl', marginRight: isEnglish ? 'unset' : '1.5rem' }}>{children}</ol>
     );
 };
 
