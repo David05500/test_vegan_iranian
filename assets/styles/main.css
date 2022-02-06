@@ -50,7 +50,9 @@ body {
 .main-logo {
   font-family: 'Montserrat';
 }
-
+.listDecimal {
+  list-style-type: decimal !important;
+}
 body{
   margin:0;
 }
