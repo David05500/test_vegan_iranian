@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { GrInstagram } from "react-icons/gr";
 import { AppDataContext } from '../components/AppDataContext';
 import Meta from '../components/shared/SeoMeta.js';
+import { FacebookShareButton, FacebookIcon } from "react-share"
 
 const addJSONLD = () => {
   return {
@@ -40,6 +41,11 @@ const HomePage = () => {
       <Meta
         title='Iranian Vegan | Authentic Persian Recipes | Home'
         description='I believe we have a duty to create a world that is more ethical than the one in which we were raised.'
+        ogUrl="https://www.theiranianvegan.com"
+        ogType="website"
+        ogImageAlt="persian recipes"
+        ogImage="/manaHomePage__1_.webp"
+        ogSiteName="The Iranian Vegan"
       />
 
       <div className='h-screen w-screen  bg-no-repeat bg-cover bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >
@@ -95,6 +101,9 @@ const HomePage = () => {
           </div>
         </div >
       </div >
+      {/* <FacebookShareButton url={`https://www.theiranianvegan.com`} >
+        <FacebookIcon size={32} round={true} />
+      </FacebookShareButton> */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={addJSONLD()}

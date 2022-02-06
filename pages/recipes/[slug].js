@@ -330,11 +330,10 @@ const BlogPost = ({ blogPost }) => {
                             </div>
                         </div>
                     </div>
-                    {console.log(`https://www.theiranianvegan.com/recipes/${post.slug}`)}
                 </div>
-                <FacebookShareButton url={`https://www.theiranianvegan.com/recipes/${post.slug}`} >
+                {/* <FacebookShareButton url={`https://www.theiranianvegan.com/recipes/${post.slug}`} >
                     <FacebookIcon size={32} round={true} />
-                </FacebookShareButton>
+                </FacebookShareButton> */}
 
                 <div className='hidden'>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
                 <script
