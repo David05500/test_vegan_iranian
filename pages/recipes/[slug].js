@@ -99,6 +99,7 @@ const BlogPost = ({ blogPost }) => {
                                     height="256"
                                     alt="Paisley leaf"
                                     className=' h-64 absolute text-gray-500'
+                                    priority
                                 />
                             </div>
 
