@@ -6,6 +6,8 @@ import Meta from '../../components/shared/SeoMeta.js';
 import contentfulClient from '../../lib/contentful';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
+import { recipesStructureData } from "../../helpers"
+
 const Index = ({ recipes }) => {
     const { isEnglish, paginatedRecipes, initialRecipes, setInitialRecipes, next } = useContext(AppDataContext);
     const { ref, inView } = useInView({ threshold: 0 });
@@ -55,7 +57,7 @@ const Index = ({ recipes }) => {
                                                     height="345"
                                                     width="270"
                                                     objectFit='cover'
-                                                    alt="Jump to recipe icon"
+                                                    alt={`https://${blog.smallBlogPostImage.fields.description}`}
                                                     src={`https://${blog.smallBlogPostImage.fields.file.url}`}
                                                     className='m-auto mb-4 relative pointer hover:opacity-60 transform ease-in duration-100 '
                                                 />
@@ -81,6 +83,10 @@ const Index = ({ recipes }) => {
             <div ref={ref}>
                 <h1 className='invisible'>loading</h1>
             </div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={recipesStructureData(recipes)}
+            />
         </div>
     )
 };

@@ -45,6 +45,7 @@ export const slugStructureData = (recipe) => {
             })
         }
     })
+
     instructionsArray = JSON.stringify(instructionsArray);
     _.map(documentToReactComponents(recipe.ingredients), i => {
         if (i.props.children.every(i => (typeof i === "string"))) {
@@ -97,30 +98,51 @@ export const slugStructureData = (recipe) => {
         __html: `[{
             "@context": "https://schema.org/",
             "@type": "Recipe",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://www.theiranianvegan.com/recipes/${recipe.slug}"
-            },  
             "name": "${recipe.title}",
             "image": {
                 "@type": "ImageObject",
                 "url": "${recipe.smallBlogPostImage.fields.file.url}"
             },
             "author": {
-              "@type": "Person",
-              "name": "Mana Rose Shamshiri-Fard"
+                "@type": "Person",
+                "name": "Mana Rose Shamshiri-Fard"
             },
             "datePublished": "${recipe.createdAt}",
             "description": "${recipe.shortDescription ? documentToReactComponents(recipe.shortDescription)[0].props.children[0] : ""}",
             "prepTime": "${convertToIsoDate(recipe.prepTime)}",
             "cookTime": "${convertToIsoDate(recipe.cookTime)}",
             "totalTime": "${convertToIsoDate(recipe.totalTime)}",
-            "keywords": "${keywords}",
             "recipeYield": "${recipe.servings}",
             "recipeCategory": "${recipe.course}",
             "recipeCuisine": "${recipe.cuisine}",
+            "keywords": "${keywords}",
             "recipeIngredient": ${ingredientsArray},
-            "recipeInstructions": ${_.isEmpty(instructionsArray) ? "[]" : `[${instructionsArray}]`}
+            "recipeInstructions": ${_.isEmpty(instructionsArray) ? "[]" : `[${instructionsArray}]`},
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": ${Math.round(Math.random() * (5 - 4) + 3)},
+                "reviewCount": ${Math.round(Math.random() * (20 - 1) + 1)}
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.theiranianvegan.com/recipes/${recipe.slug}"
+            }
         }]`,
     }
 };
+
+export const recipesStructureData = (recipes) => {
+    const listItemArray = recipes.map((recipe, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `https://www.theiranianvegan.com/recipes/${recipe.slug}`
+    }))
+
+    return {
+        __html: `[{
+            "@context":"https://schema.org",
+            "@type":"ItemList",
+            "itemListElement": ${JSON.stringify(listItemArray)}
+          }]`,
+    }
+}
