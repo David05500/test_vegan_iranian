@@ -18,7 +18,7 @@ export const slugStructureData = (recipe) => {
         } else if (r.props.children[0] != '') {
             _.map(r.props.children, p => {
                 if (p.props != undefined) {
-                    if (p.props.children[0].props) {
+                    if (p.props.children[0] && p.props.children[0].props) {
                         instructionsArray.push(
                             {
                                 "@type": "HowToStep",
