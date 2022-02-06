@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
-import getContentfulContent from '../../lib/getContentfulContent';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { GrInstagram } from "react-icons/gr";
-import { AppDataContext } from '../../components/AppDataContext';
-import Image from 'next/image';
-import { cloneDeep, map } from 'lodash';
-import contentfulClient from '../../lib/contentful';
+import React, { useEffect, useState, useRef, useContext } from 'react'
+import getContentfulContent from '../../lib/getContentfulContent'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { GrInstagram } from "react-icons/gr"
+import { AppDataContext } from '../../components/AppDataContext'
+import Image from 'next/image'
+import { cloneDeep, map } from 'lodash'
+import contentfulClient from '../../lib/contentful'
 import Meta from '../../components/shared/SeoMeta.js'
 import { slugStructureData, options } from "../../helpers"
+import { FacebookShareButton, FacebookIcon } from "react-share"
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop - 220);
 
@@ -52,6 +53,12 @@ const BlogPost = ({ blogPost }) => {
                 <Meta
                     title={post.title}
                     description={post.shortDescription.content[0].content[0].value}
+                    ogUrl={`https://www.theiranianvegan.com/recipes/${post.slug}`}
+                    ogType="article"
+                    articleTag={post.slug.split('-').join(', ')}
+                    ogImageAlt={post.smallBlogPostImage.fields.description}
+                    ogImage={"https:" + post.smallBlogPostImage.fields.file.url}
+                    ogSiteName="The Iranian Vegan"
                 />
                 <div className='m-auto text-2xl bg-gray-primary '>
                     <div className='max-width-735 px-4 mx-auto mt-10 lg:mt-20'>
@@ -323,8 +330,11 @@ const BlogPost = ({ blogPost }) => {
                             </div>
                         </div>
                     </div>
+                    {console.log(`https://www.theiranianvegan.com/recipes/${post.slug}`)}
                 </div>
-
+                <FacebookShareButton url={`https://www.theiranianvegan.com/recipes/${post.slug}`} >
+                    <FacebookIcon size={32} round={true} />
+                </FacebookShareButton>
 
                 <div className='hidden'>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
                 <script
