@@ -118,11 +118,6 @@ export const slugStructureData = (recipe) => {
             "keywords": "${keywords}",
             "recipeIngredient": ${ingredientsArray},
             "recipeInstructions": ${_.isEmpty(instructionsArray) ? "[]" : `[${instructionsArray}]`},
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": ${(Math.random() * (5 - 4) + 4).toFixed(1)},
-                "reviewCount": ${Math.round(Math.random() * (10 - 1) + 1)}
-            },
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "https://www.theiranianvegan.com/recipes/${recipe.slug}"
@@ -130,7 +125,11 @@ export const slugStructureData = (recipe) => {
         }]`,
     }
 };
-
+// "aggregateRating": {
+//     "@type": "AggregateRating",
+//     "ratingValue": ${(Math.random() * (5 - 4) + 4).toFixed(1)},
+//     "reviewCount": ${Math.round(Math.random() * (10 - 1) + 1)}
+// },
 export const recipesStructureData = (recipes) => {
     const listItemArray = recipes.map((recipe, index) => ({
         "@type": "ListItem",
