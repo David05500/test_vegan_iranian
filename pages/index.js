@@ -48,11 +48,11 @@ const HomePage = () => {
         ogSiteName="The Iranian Vegan"
       />
 
-      <div className='h-screen w-screen  bg-no-repeat bg-cover bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >
+      <div className='h-screen w-screen  bg-no-repeat bg-cover lg:bg-contain bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >
         <div style={{ background: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3))', width: '100vw', height: '100vh' }} >
-          <div className='flex flex-col justify-between pt-12 pb-28 lg:justify-center items-center h-screen '>
+          <div className='flex flex-col justify-between h-full pb-12 items-center h-screen pt-64'>
             <h1
-              className='italic text-3xl lg:text-7xl text-white font-bold z-50 main-logo lg:text-spaceping-4 mt-28'
+              className='italic text-3xl lg:text-7xl text-white font-bold z-50 main-logo lg:text-spaceping-4'
               style={{ textShadow: '6px 6px 0px rgba(0,0,0,0.1)' }}
             >
               THE IRANIAN VEGAN
