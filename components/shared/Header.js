@@ -127,6 +127,13 @@ const Header = props => {
             }
           </Link>
 
+          <Link href="/iranian-vegan-restuarant">
+            {isEnglish
+              ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100'>RESTUARANT</h4></a>
+              : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
+            }
+          </Link>
+
         </div>
         <div className='mt-4 flex justify-center items-center w-full md:w-auto  md:absolute lg:right-185px lg:bottom-12px'>
           <form noValidate action="" role="search" className="lg:mt-0 relative">

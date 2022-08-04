@@ -5,9 +5,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: () => ({
-        'desktop-home-image': "url('/manaHomePage__1_.webp')",
-        'mobile-home-image': "url('/mobileHomePageImage.webp')",
-        "logo-image": "url('/logoImage.webp')"
+        'desktop-home-image': "url('/rsz_theiranianveganfinal_webp.webp')",
+        'mobile-home-image': "url('/rsz_theiranianveganfinal_webp.webp')",
+        "logo-image": "url('/rsz_theiranianveganfinal_webp.webp')"
       })
     },
     screens: {
