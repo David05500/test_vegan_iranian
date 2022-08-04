@@ -59,34 +59,36 @@ const HomePage = () => {
             </h1>
 
             <div className='flex flex-col justify-center items-center w-full'>
-              <div className='flex flex-col lg:flex-row items-center text-white w-5/7 min-h-24 max-w-26 tracking-wide z-50 justify-around'>
-                <Link href="/iranian-vegan-restuarant">
+              <div className='flex flex-col lg:flex-col items-center text-white w-5/7 min-h-24 max-w-26 tracking-wide z-50 justify-around'>
+                <Link href="/iranian-vegan-restaurant">
                   {isEnglish
-                    ? <a><h4 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100 shimmer'>RESTUARANT</h4></a>
+                    ? <a><h4 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100 shimmer'>NEW POP UP RESTAURANT IN LONDON</h4></a>
                     : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
                   }
                 </Link>
+                <div>
+                  <Link href="/recipes">
+                    {isEnglish
+                      ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>RECIPES</h2></a>
+                      : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>طرز تهیه غذاها</h2></a>
+                    }
+                  </Link>
 
-                <Link href="/recipes">
-                  {isEnglish
-                    ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>RECIPES</h2></a>
-                    : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>طرز تهیه غذاها</h2></a>
-                  }
-                </Link>
+                  <Link href="/about">
+                    {isEnglish
+                      ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>ABOUT</h2></a>
+                      : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>درباره من</h2></a>
+                    }
+                  </Link>
 
-                <Link href="/about">
-                  {isEnglish
-                    ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>ABOUT</h2></a>
-                    : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>درباره من</h2></a>
-                  }
-                </Link>
-
-                <Link href="/contact">
-                  {isEnglish
-                    ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>CONTACT</h2></a>
-                    : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h2></a>
-                  }
-                </Link>
+                  <Link href="/contact">
+                    {isEnglish
+                      ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>CONTACT</h2></a>
+                      : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h2></a>
+                    }
+                  </Link>
+                </div>
+                
               </div>
 
               <a href='https://www.instagram.com/theiranianvegan/' className='text-white mt-10 z-50  hover:opacity-60 transform ease-in duration-100'>

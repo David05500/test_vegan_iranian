@@ -9,7 +9,7 @@ const addJSONLD = () => {
         "@type": "WebPage",
         "@id": "https://theiranianvegan.com/about/#webpage",
         "url": "https://theiranianvegan.com/about/",
-        "name": "Iranian Vegan | Iranian Vegan Restuarant",
+        "name": "Iranian Vegan | Iranian Vegan Restaurant",
         "datePublished": "2020-08-31T12:00:44+00:00",
         "inLanguage": "en-GB",
         "isPartOf": {
@@ -29,11 +29,11 @@ const addJSONLD = () => {
   }
 };
 
-const IranianVeganRestuarant = () => {
+const IranianVeganRestaurant = () => {
   return (
     <>
       <Meta
-        title='Iranian Vegan | Iranian Vegan Restuarant'
+        title='Iranian Vegan | Iranian Vegan Restaurant'
         description='One of the cultural traits that immigrant communities pass on from generation to generation is the heritage of our cuisine. For us, as Iranians, and especially as the Iranian diaspora, food is so much more than just food.'
       />
       <div className='m-auto text-2xl bg-gray-primary'>
@@ -44,7 +44,7 @@ const IranianVeganRestuarant = () => {
           <p className="mb-6 text-base text-justify" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
           
           <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white'>
-            <h3 className="mb-8 text-lg">Book a place at the restuarant:</h3>
+            <h3 className="mb-8 text-lg">Book a place at the Restaurant:</h3>
             
             <div className='flex mb-6'>
 
@@ -80,4 +80,4 @@ const IranianVeganRestuarant = () => {
   )
 }
 
-export default IranianVeganRestuarant;
+export default IranianVeganRestaurant;

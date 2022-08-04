@@ -15,7 +15,7 @@ export async function checkout({lineItems}){
     await stripe.redirectToCheckout({
         mode: "payment",
         lineItems,
-        successUrl: `${window.location.origin}/iranian-vegan-restuarant`,
-        cancelUrl: `${window.location.origin}/iranian-vegan-restuarant`
+        successUrl: `${window.location.origin}/iranian-vegan-restaurant`,
+        cancelUrl: `${window.location.origin}/iranian-vegan-restaurant`
     })
 }
