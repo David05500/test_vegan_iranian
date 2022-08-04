@@ -38,30 +38,38 @@ const IranianVeganRestuarant = () => {
       />
       <div className='m-auto text-2xl bg-gray-primary'>
 
+        <div className='max-width-735 p-6 lg:p-0 mx-auto my-10 lg:mb-20 lg:mb-10'>
+          <h1 className="text-center mb-10"> Mana's Plant Based Persian Cuisine Pop-up Restaurant</h1>
 
-      <p 
-          onClick={() => {
-            checkout({
-              lineItems:[
-                {
-                  price: "price_1LT0tiEB4nr07nfa6ESzdDnC",
-                  quantity: 1
-                }
-              ]
-            })
-          }}
-          >Click me</p>
+          <p className="mb-6 text-base text-justify" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+          
+          <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white'>
+            <h3 className="mb-8 text-lg">Book a place at the restuarant:</h3>
+            
+            <div className='flex mb-6'>
 
-  
-        <div className='max-width-735 p-6 lg:p-0 mx-auto my-10 lg:my-20 '>
-          <p className="mb-6 text-base font-medium text-justify" >I’m Mana. A young woman from the Iranian diaspora based in London. That’s all you need to know really. Apart from the fact that I’m probably a lot like you. I believe in compassion. I think we have a duty to create a world that is more ethical and just than the one in which we were raised. For me, this duty extends to all forms of life.</p>
-
-          <p className="mb-6 text-base text-justify">One of the cultural traits that immigrant communities pass on from generation to generation is the heritage of our cuisine. For us, as Iranians, and especially as the Iranian diaspora, food is so much more than just food. Engaging with the rituals and practices of creating and eating food are ways in which we connect with and hold on to our culture. Our identities are often fragmented, confused and we feel estranged from the world outside of our homes and our families. Given our history, and the political upheaval and change that has displaced us, consuming such food offers a stability of identity and ties us to our lineage in spaces of uncertainty.</p>
-
-          <p className="mb-6 text-base text-justify">With meat being such a huge staple in Iranian culture and diet, it often feels hard to disconnect with our culture and distance ourselves from our family, friends, social situations and identify with veganism, which is often dominated by western neoliberal narratives. Like many vegans from non-Western backgrounds, we often feel like we’re entering into a white-dominated space. Like veganism isn’t ours. This space is created to change that.</p>
-
-          <p className="mb-6 text-base text-justify">Our vegan practices don't mean that we have to leave our culture behind. As we know, the means of meat production today are nothing like it was on the farms of our ancestors. Animals are made a commodity, mass-produced and abused, whilst they are injected with hormones and medicated, having disastrous effects on our health, not to mention our dying Earth. This space is created to engage with our heritage, origins and anthropology of our food, as a way of maintaining the thread of continuity with our ancestors whilst offering a space for growth as times change, and as we change. For me, there is so much honour in creating the foods of my ancestors and knowing there is no pain and suffering in the dish, only love.</p>
-
+            <select id="countries_disabled" className="text-base mr-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option value="option_1 ">Option 1</option>
+              <option value="option_2">Option 2</option>
+            </select>
+              -
+            <p className="w-20 ml-5">£20</p>
+            </div>
+            
+            <button 
+              type="button" className="self-end inline-block px-6 py-2 border border-gray-400  font-medium text-xs leading-normal uppercase rounded hover:bg-gray-100 hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              onClick={() => {
+                checkout({
+                  lineItems:[{
+                      price: "price_1LT0tiEB4nr07nfa6ESzdDnC",
+                      quantity: 1
+                  }]
+                })
+              }}
+            >Next</button>
+          </div>
+          
+          
         </div>
       </div>
       <script

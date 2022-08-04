@@ -85,6 +85,13 @@ const Header = props => {
         </Link>
 
         <div className='flex w-4/5 lg:w-1/3 m-auto justify-around relative'  >
+             
+          <Link href="/iranian-vegan-restuarant">
+            {isEnglish
+              ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100 shimmer'>RESTUARANT</h4></a>
+              : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
+            }
+          </Link>
           <div className="dropdown">
             <Link href="/recipes" >
               {isEnglish
@@ -123,13 +130,6 @@ const Header = props => {
           <Link href="/contact">
             {isEnglish
               ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100'>CONTACT</h4></a>
-              : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
-            }
-          </Link>
-
-          <Link href="/iranian-vegan-restuarant">
-            {isEnglish
-              ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100'>RESTUARANT</h4></a>
               : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
             }
           </Link>
