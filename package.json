@@ -13,6 +13,7 @@
     "@contentful/rich-text-react-renderer": "^14.1.1",
     "@contentful/rich-text-types": "^14.1.1",
     "@next/bundle-analyzer": "^12.0.10",
+    "@stripe/stripe-js": "^1.35.0",
     "contentful": "^7.14.4",
     "framer-motion": "^1.11.1",
     "moment": "^2.29.1",

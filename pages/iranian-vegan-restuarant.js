@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { checkout } from '../checkout.js';
 import Meta from '../components/shared/SeoMeta.js'
 
 const addJSONLD = () => {
@@ -36,6 +37,22 @@ const IranianVeganRestuarant = () => {
         description='One of the cultural traits that immigrant communities pass on from generation to generation is the heritage of our cuisine. For us, as Iranians, and especially as the Iranian diaspora, food is so much more than just food.'
       />
       <div className='m-auto text-2xl bg-gray-primary'>
+
+
+      <p 
+          onClick={() => {
+            checkout({
+              lineItems:[
+                {
+                  price: "price_1LT0tiEB4nr07nfa6ESzdDnC",
+                  quantity: 1
+                }
+              ]
+            })
+          }}
+          >Click me</p>
+
+  
         <div className='max-width-735 p-6 lg:p-0 mx-auto my-10 lg:my-20 '>
           <p className="mb-6 text-base font-medium text-justify" >I’m Mana. A young woman from the Iranian diaspora based in London. That’s all you need to know really. Apart from the fact that I’m probably a lot like you. I believe in compassion. I think we have a duty to create a world that is more ethical and just than the one in which we were raised. For me, this duty extends to all forms of life.</p>
 
