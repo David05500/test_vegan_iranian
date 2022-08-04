@@ -84,7 +84,7 @@ const Header = props => {
           >THE IRANIAN VEGAN</h1>
         </Link>
 
-        <div className='flex w-4/5 lg:w-1/3 m-auto justify-around relative'  >
+        <div className='flex w-11/12 lg:w-1/3 m-auto justify-around relative'  >
              
           <Link href="/iranian-vegan-restuarant">
             {isEnglish
