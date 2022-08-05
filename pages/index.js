@@ -48,9 +48,9 @@ const HomePage = () => {
         ogSiteName="The Iranian Vegan"
       />
 
-      <div className='h-screen w-screen  bg-no-repeat bg-cover lg:bg-contain bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >
-        <div style={{ background: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3))', width: '100vw', height: '100vh' }} >
-          <div className='flex flex-col justify-between h-full pb-12 items-center h-screen pt-64'>
+      <div className='h-screen w-screen  bg-no-repeat bg-cover bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >
+        <div style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.1)  70%, rgba(0, 0, 0, 0.7) 100%)', width: '100vw', height: '100vh' }} >
+          <div className='flex flex-col justify-between h-full pb-12 items-center h-screen pt-48 text-center'>
             <h1
               className='italic text-3xl lg:text-7xl text-white font-bold z-50 main-logo lg:text-spaceping-4'
               style={{ textShadow: '6px 6px 0px rgba(0,0,0,0.1)' }}
@@ -62,7 +62,7 @@ const HomePage = () => {
               <div className='flex flex-col lg:flex-col items-center text-white w-5/7 min-h-24 max-w-26 tracking-wide z-50 justify-around'>
                 <Link href="/iranian-vegan-restaurant">
                   {isEnglish
-                    ? <a><h4 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100 shimmer'>NEW POP UP RESTAURANT IN LONDON</h4></a>
+                    ? <a><h4 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100 shimmer mb-6 '>NEW POP UP RESTAURANT IN LONDON</h4></a>
                     : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
                   }
                 </Link>

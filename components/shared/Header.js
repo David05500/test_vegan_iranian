@@ -86,13 +86,12 @@ const Header = props => {
 
         <div className='flex w-11/12 lg:w-1/3 m-auto justify-around relative'  >
              
-          <Link href="/iranian-vegan-restaurant">
+          <Link href="/iranian-vegan-restuarant">
             {isEnglish
-              ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100 shimmer'>NEW POP UP RESTAURANT IN LONDON</h4></a>
+              ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100 shimmer'>RESTUARANT</h4></a>
               : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
             }
           </Link>
-          <div>
           <div className="dropdown">
             <Link href="/recipes" >
               {isEnglish
@@ -134,8 +133,6 @@ const Header = props => {
               : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
             }
           </Link>
-          </div>
-     
 
         </div>
         <div className='mt-4 flex justify-center items-center w-full md:w-auto  md:absolute lg:right-185px lg:bottom-12px'>
