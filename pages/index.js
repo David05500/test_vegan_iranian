@@ -50,7 +50,7 @@ const HomePage = () => {
 
       <div className='h-screen w-screen  bg-no-repeat bg-cover bg-center flex justify-center items-center bg-mobile-home-image md:bg-desktop-home-image' >
         <div style={{ background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.1)  70%, rgba(0, 0, 0, 0.7) 100%)', width: '100vw', height: '100vh' }} >
-          <div className='flex flex-col justify-between h-full pb-12 items-center h-screen pt-48 text-center'>
+          <div className='flex flex-col justify-between h-full pb-12 items-center h-screen pt-24 text-center'>
             <h1
               className='italic text-3xl lg:text-7xl text-white font-bold z-50 main-logo lg:text-spaceping-4'
               style={{ textShadow: '6px 6px 0px rgba(0,0,0,0.1)' }}
