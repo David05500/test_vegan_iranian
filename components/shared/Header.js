@@ -86,9 +86,9 @@ const Header = props => {
 
         <div className='flex w-11/12 lg:w-1/3 m-auto justify-around relative'  >
              
-          <Link href="/iranian-vegan-restuarant">
+          <Link href="/iranian-vegan-restaurant">
             {isEnglish
-              ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100 shimmer'>RESTUARANT</h4></a>
+              ? <a><h4 className='pointer text-sm font-medium hover:opacity-60 transform ease-in duration-100 shimmer'>RESTAURANT</h4></a>
               : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
             }
           </Link>
