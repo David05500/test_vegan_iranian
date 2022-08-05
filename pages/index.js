@@ -97,13 +97,13 @@ const HomePage = () => {
             </div>
 
             <div style={{ top: '50px', right: '50px', backdropFilter: 'saturate(150%) blur(20px)', backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
-              className="absolute text-sm text-gray-500 leading-none rounded-full inline-flex">
+              className="absolute text-sm text-gray-500 leading-none rounded inline-flex">
               <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 
-                  ${isEnglish ? 'text-blue-400' : 'text-white'} rounded-l-full px-4 py-2`} onClick={() => setIsEnglish(true)}>
+                  ${isEnglish ? 'text-blue-400' : 'text-white'}  px-4 py-2`} onClick={() => setIsEnglish(true)}>
                 <span>English</span>
               </button>
               <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 
-                  ${isEnglish ? 'text-white' : 'text-blue-400'} rounded-r-full px-4 py-2`} onClick={() => setIsEnglish(false)}>
+                  ${isEnglish ? 'text-white' : 'text-blue-400'}  px-4 py-2`} onClick={() => setIsEnglish(false)}>
                 <span>فارسی</span>
               </button>
             </div>

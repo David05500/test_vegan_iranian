@@ -152,11 +152,11 @@ const Header = props => {
               <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
             </svg>
           </form>
-          <div style={{ zIndex: '1111111111', backdropFilter: 'saturate(150%) blur(20px)' }} className="ml-4 text-sm text-gray-500 leading-none border-2 border-gray-200 rounded-full inline-flex block md:hidden">
-            <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? 'text-blue-400' : ''} rounded-md px-4 py-2`} onClick={() => setIsEnglish(true)}>
+          <div style={{ zIndex: '1111111111', backdropFilter: 'saturate(150%) blur(20px)' }} className="ml-4 text-sm text-gray-500 leading-none border-2 border-gray-200 rounded inline-flex block md:hidden">
+            <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? 'text-blue-400' : ''}  px-4 py-2`} onClick={() => setIsEnglish(true)}>
               <span>En</span>
             </button>
-            <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? '' : 'text-blue-400'} rounded-md px-4 py-2`} onClick={() => setIsEnglish(false)}>
+            <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? '' : 'text-blue-400'}  px-4 py-2`} onClick={() => setIsEnglish(false)}>
               <span>Fa</span>
             </button>
           </div>
@@ -182,11 +182,11 @@ const Header = props => {
           })}
         </div>
       }
-      <div style={{ top: '50px', right: '50px', zIndex: '1111111111', backdropFilter: 'saturate(150%) blur(20px)', backgroundColor: 'rgba(255, 255, 255, 0.5)' }} className="absolute text-sm text-gray-500 leading-none border-2 border-gray-200 rounded-full inline-flex hidden md:block">
-        <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? 'text-blue-400' : ''} rounded-l-full px-4 py-2`} onClick={() => setIsEnglish(true)}>
+      <div style={{ top: '50px', right: '50px', zIndex: '1111111111', backdropFilter: 'saturate(150%) blur(20px)', backgroundColor: 'rgba(255, 255, 255, 0.5)' }} className="absolute text-sm text-gray-500 leading-none border-2 border-gray-200 rounded inline-flex hidden md:block">
+        <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? 'text-blue-400' : ''}  px-4 py-2`} onClick={() => setIsEnglish(true)}>
           <span className='hidden md:block'> English</span>
         </button>
-        <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? '' : 'text-blue-400'} rounded-r-full px-4 py-2`} onClick={() => setIsEnglish(false)}>
+        <button className={`inline-flex items-center transition-colors duration-300 ease-in focus:outline-none hover:text-blue-400 ${isEnglish ? '' : 'text-blue-400'}  px-4 py-2`} onClick={() => setIsEnglish(false)}>
           <span className='hidden md:block'>فارسی</span>
         </button>
       </div>
