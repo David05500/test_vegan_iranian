@@ -1,6 +1,8 @@
 import _ from 'lodash';
-import { checkout } from '../checkout.js';
+import Image from 'next/image';
+// import { checkout } from '../checkout.js';
 import Meta from '../components/shared/SeoMeta.js'
+import { GoLocation } from "react-icons/go"
 
 const addJSONLD = () => {
   return {
@@ -41,9 +43,35 @@ const IranianVeganRestaurant = () => {
         <div className='max-width-735 p-6 lg:p-0 mx-auto my-10 lg:mb-20 lg:mb-10'>
           <h1 className="text-center mb-10"> Mana's Plant Based Persian Cuisine Pop-up Restaurant</h1>
 
-          <p className="mb-6 text-base text-justify" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-          
-          <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white'>
+          <Image height="853" width="1280" src="/mana_restuarant.webp" alt='Course icon' />
+
+
+          <p className="mb-6 text-base text-justify mt-12">During the Coronavirus pandemic, I started an instagram blog (@theiranianvegan) and website, to document my cooking, share my recipes, and to prove to others that we do not have to leave our culture behind when going plant-based, or compromise on
+            flavour.</p>
+          <p className="mb-6 text-base text-justify mb-12">From mid-August to December, I am running a pop-up restaurant on a four month residency at Jamboree Jazz Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH. For Iranians, food goes beyond merely sustenance. It is first and foremost an expression of love, of warmth, of hospitality, of community, and a celebration of our rich cultural heritage. I am so grateful to have the opportunity to share this with you. Expect a selection of traditional sharing mezze, stews, clay-oven baked bread and desserts.</p>
+                    
+
+          <Image height="1025" width="722" src="/menu.webp" alt='Course icon' />
+
+          <div className='flex p-1 flex-col lg:flex-row'>
+            <div className='lg:w-1/2'>
+              <h3 className='text-lg font-medium'>Opening hours:</h3>
+              <p className='text-base ml-6 lg:ml-0'>Wednesday - Sunday</p>
+              <p className='text-base ml-6 lg:ml-0'>Lunch - 12pm to 2pm  </p>
+              <p className='text-base ml-6 lg:ml-0'>Dinner - 6pm to 9pm </p>
+            </div>
+            <div className='lg:w-1/2 flex mt-4 lg:mt-0 '>
+              <GoLocation size={20} className="mt-1"/>
+              <p className='text-base ml-4'>Jamboree Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH</p>
+            </div>
+          </div>
+
+          <p className='text-base lg:text-center mt-4 lg:mt-8'>For any questions, please contact theiranianvegan@gmail.com</p>
+         
+
+
+
+          {/* <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white'>
             <h3 className="mb-8 text-lg">Book a place at the Restaurant:</h3>
             
             <div className='flex mb-6'>
@@ -67,7 +95,7 @@ const IranianVeganRestaurant = () => {
                 })
               }}
             >Next</button>
-          </div>
+          </div> */}
           
           
         </div>

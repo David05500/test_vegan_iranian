@@ -7,7 +7,9 @@ module.exports = {
       backgroundImage: () => ({
         'desktop-home-image': "url('/rsz_theiranianveganfinal_webp.webp')",
         'mobile-home-image': "url('/rsz_theiranianveganfinal_webp.webp')",
-        "logo-image": "url('/rsz_theiranianveganfinal_webp.webp')"
+        "logo-image": "url('/rsz_theiranianveganfinal_webp.webp')",
+        "menu-image": "url('/menu.webp')",
+        "mana-chef": "url('/mana_restuarant.webp')"
       })
     },
     screens: {
