@@ -68,7 +68,7 @@ const IranianVeganRestaurant = () => {
             <div className="mb-4 lg:mb-0 lg:w-1/2 lg:mt-0 lg:ml-24 ">
               <div className='flex items-center mb-2'>
                 <GoLocation className="mr-2" size={20}/>
-                <h3 className='text-lg font-medium underline underline-offset-3'>Find us here:</h3>
+                <h3 className='text-lg font-medium underline underline-offset-3'>See you here 😉:</h3>
               </div>
               <p className='text-base ml-6 lg:ml-8'>Jamboree Venue, <br /> 6 St Chad's Place, King's Cross, London WC1X 9HH</p>
             </div>
