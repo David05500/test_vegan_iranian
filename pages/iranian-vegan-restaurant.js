@@ -55,7 +55,7 @@ const IranianVeganRestaurant = () => {
           <Image height="1025" width="722" src="/menu.webp" alt='Course icon' />
 
           <div className='flex p-1 flex-col lg:flex-row justify-between'>
-            <div className='lg:w-1/2'>
+            <div className='mb-8 lg:mb-0 lg:w-1/2'>
               <div className='flex items-center mb-2'>
                 <BiTime size={20} className="mr-2"/> <h3 className='text-lg font-medium underline underline-offset-3'>Opening hours:</h3>
               </div>
@@ -65,7 +65,7 @@ const IranianVeganRestaurant = () => {
                 <p>Dinner - 6pm to 9pm </p>
               </div>              
             </div>
-            <div className="lg:w-1/2 lg:mt-0 lg:ml-24 ">
+            <div className="mb-4 lg:mb-0 lg:w-1/2 lg:mt-0 lg:ml-24 ">
               <div className='flex items-center mb-2'>
                 <GoLocation className="mr-2" size={20}/>
                 <h3 className='text-lg font-medium underline underline-offset-3'>Find us here:</h3>
@@ -74,7 +74,7 @@ const IranianVeganRestaurant = () => {
             </div>
           </div>
 
-          <p className='text-base lg:text-center mt-4 lg:mt-8'>For any questions, please contact <span className="font-medium">theiranianvegan@gmail.com</span></p>
+          <p className='text-base mb-2 lg:text-center mt-4 lg:mt-8'>For any questions, please contact <span className="font-medium">theiranianvegan@gmail.com</span></p>
           <p className='text-base lg:text-center'>For bookings please call the venue on <span className="font-medium">02072786797</span></p>
          
 
