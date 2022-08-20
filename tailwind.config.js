@@ -4,6 +4,9 @@ module.exports = {
   separator: ':',
   theme: {
     extend: {
+      textUnderlineOffset: {
+        3: '3px',
+      },
       backgroundImage: () => ({
         'desktop-home-image': "url('/rsz_theiranianveganfinal_webp.webp')",
         'mobile-home-image': "url('/rsz_theiranianveganfinal_webp.webp')",

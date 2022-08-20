@@ -3,6 +3,7 @@ import Image from 'next/image';
 // import { checkout } from '../checkout.js';
 import Meta from '../components/shared/SeoMeta.js'
 import { GoLocation } from "react-icons/go"
+import { BiTime } from "react-icons/bi"
 
 const addJSONLD = () => {
   return {
@@ -35,38 +36,46 @@ const IranianVeganRestaurant = () => {
   return (
     <>
       <Meta
-        title='Iranian Vegan | Iranian Vegan Restaurant'
+        title="Iranian Vegan | Mana's Plant-Based Persian Cuisine - Pop-up Restaurant"
         description='One of the cultural traits that immigrant communities pass on from generation to generation is the heritage of our cuisine. For us, as Iranians, and especially as the Iranian diaspora, food is so much more than just food.'
       />
       <div className='m-auto text-2xl bg-gray-primary'>
 
         <div className='max-width-735 p-6 lg:p-0 mx-auto my-10 lg:mb-20 lg:mb-10'>
-          <h1 className="text-center mb-10"> Mana's Plant Based Persian Cuisine Pop-up Restaurant</h1>
+          <h1 className="text-center mb-10"> Mana's Plant-Based Persian Cuisine - Pop-up Restaurant</h1>
 
           <Image height="853" width="1280" src="/mana_restuarant.webp" alt='Course icon' />
 
 
           <p className="mb-6 text-base text-justify mt-12">During the Coronavirus pandemic, I started an instagram blog (@theiranianvegan) and website, to document my cooking, share my recipes, and to prove to others that we do not have to leave our culture behind when going plant-based, or compromise on
             flavour.</p>
-          <p className="mb-6 text-base text-justify mb-12">From mid-August to December, I am running a pop-up restaurant on a four month residency at Jamboree Jazz Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH. For Iranians, food goes beyond merely sustenance. It is first and foremost an expression of love, of warmth, of hospitality, of community, and a celebration of our rich cultural heritage. I am so grateful to have the opportunity to share this with you. Expect a selection of traditional sharing mezze, stews, clay-oven baked bread and desserts.</p>
-                    
+          <p className="mb-6 text-base text-justify">From September, I am running a pop-up restaurant on a four month residency at <span className="font-medium">Jamboree Jazz Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH</span>.</p>
+          <p className="mb-6 text-base text-justify mb-12">For Iranians, food goes beyond merely sustenance. It is first and foremost an expression of love, of warmth, of hospitality, of community, and a celebration of our rich cultural heritage. I am so grateful to have the opportunity to share this with you. Expect a selection of traditional sharing mezze, stews, clay-oven baked bread and desserts.</p>       
 
           <Image height="1025" width="722" src="/menu.webp" alt='Course icon' />
 
-          <div className='flex p-1 flex-col lg:flex-row'>
+          <div className='flex p-1 flex-col lg:flex-row justify-between'>
             <div className='lg:w-1/2'>
-              <h3 className='text-lg font-medium'>Opening hours:</h3>
-              <p className='text-base ml-6 lg:ml-0'>Wednesday - Sunday</p>
-              <p className='text-base ml-6 lg:ml-0'>Lunch - 12pm to 2pm  </p>
-              <p className='text-base ml-6 lg:ml-0'>Dinner - 6pm to 9pm </p>
+              <div className='flex items-center mb-2'>
+                <BiTime size={20} className="mr-2"/> <h3 className='text-lg font-medium underline underline-offset-3'>Opening hours:</h3>
+              </div>
+              <div className='text-base ml-6 lg:ml-8'>
+                <p>Wednesday - Sunday</p>
+                <p>Lunch - 12pm to 2pm  </p>
+                <p>Dinner - 6pm to 9pm </p>
+              </div>              
             </div>
-            <div className='lg:w-1/2 flex mt-4 lg:mt-0 '>
-              <GoLocation size={20} className="mt-1"/>
-              <p className='text-base ml-4'>Jamboree Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH</p>
+            <div className="lg:w-1/2 lg:mt-0 lg:ml-24 ">
+              <div className='flex items-center mb-2'>
+                <GoLocation className="mr-2" size={20}/>
+                <h3 className='text-lg font-medium underline underline-offset-3'>Find us here:</h3>
+              </div>
+              <p className='text-base ml-6 lg:ml-8'>Jamboree Venue, <br /> 6 St Chad's Place, King's Cross, London WC1X 9HH</p>
             </div>
           </div>
 
-          <p className='text-base lg:text-center mt-4 lg:mt-8'>For any questions, please contact theiranianvegan@gmail.com</p>
+          <p className='text-base lg:text-center mt-4 lg:mt-8'>For any questions, please contact <span className="font-medium">theiranianvegan@gmail.com</span></p>
+          <p className='text-base lg:text-center'>For bookings please call the venue on <span className="font-medium">02072786797</span></p>
          
 
 
