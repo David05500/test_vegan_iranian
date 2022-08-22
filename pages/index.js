@@ -58,7 +58,7 @@ const HomePage = () => {
               THE IRANIAN VEGAN
             </h1>
 
-            <div className='flex flex-col justify-center items-center w-full'>
+            <div className='flex flex-col justify-center items-center w-full lg:w-2/5 p-4 bg-smoke-light lg:rounded-sm'>
               <div className='flex flex-col lg:flex-col items-center text-white w-5/7 min-h-24 max-w-26 tracking-wide z-50 justify-around'>
                 <Link href="/iranian-vegan-restaurant">
                   {isEnglish
