@@ -67,12 +67,12 @@ const HomePage = () => {
                   }
                 </Link>
                 <div>
-                  <Link href="/recipes">
+                  {/* <Link href="/recipes">
                     {isEnglish
                       ? <a><h2 className='checking pointer text-small font-medium hover:opacity-60 transform ease-in duration-100'>RECIPES</h2></a>
                       : <a><h2 className='checking pointer text-xl font-medium hover:opacity-60 transform ease-in duration-100'>طرز تهیه غذاها</h2></a>
                     }
-                  </Link>
+                  </Link> */}
 
                   <Link href="/about">
                     {isEnglish
