@@ -45,37 +45,30 @@ const IranianVeganRestaurant = () => {
 
           <Image height="500" width="500" src="/restuarant-logo.png" alt='Course icon' />
 
-          <p className="mb-6 text-base text-justify mt-12">During the Coronavirus pandemic, I started an instagram blog (@theiranianvegan) and website, to document my cooking, share my recipes, and to prove to others that we do not have to leave our culture behind when going plant-based, or compromise on
+          <p className="mb-8 text-base text-justify">During the Coronavirus pandemic, I started an instagram blog (@theiranianvegan) and website, to document my cooking, share my recipes, and to prove to others that we do not have to leave our culture behind when going plant-based, or compromise on
             flavour.</p>
-          <p className="mb-6 text-base text-justify">From September, I am running a pop-up restaurant on a four month residency at <span className="font-medium">Jamboree Jazz Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH</span>.</p>
+          <p className="mb-10 text-base text-justify">From September, I am running a pop-up restaurant on a four month residency at <span className="font-medium">Jamboree Jazz Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH</span>.</p>
           <Image height="853" width="1280" src="/mana_restuarant.webp" alt='Course icon' />
-          <p className="mb-6 text-base text-justify mt-12 mb-12">For Iranians, food goes beyond merely sustenance. It is first and foremost an expression of love, of warmth, of hospitality, of community, and a celebration of our rich cultural heritage. I am so grateful to have the opportunity to share this with you. Expect a selection of traditional sharing mezze, stews, clay-oven baked bread and desserts.</p>       
+          <p className="mb-6 text-base text-justify mt-10 mb-6 lg:mb-12">For Iranians, food goes beyond merely sustenance. It is first and foremost an expression of love, of warmth, of hospitality, of community, and a celebration of our rich cultural heritage. I am so grateful to have the opportunity to share this with you. Expect a selection of traditional sharing mezze, stews, clay-oven baked bread and desserts.</p>       
 
 
           <div className="flex flex-col lg:flex-row">
-            <ul className="mb-6 lg:w-2/3 lg:pt-4 border-b pb-6 lg:border-b-0 lg:border-r lg:mr-2">
-              <li className='text-base mb-4 list-disc'>Find our menu <a href="/Menu_v3.pdf" target="_blank" rel="noreferrer" className="font-medium underline pointer">here</a></li>
-              <li className='text-base mb-4 list-disc'>For bookings please call the venue on <span className="font-medium">02072786797</span></li>
-              <li className='text-base list-disc'>For any questions, please contact <span className="font-medium">theiranianvegan@gmail.com</span></li>
-            </ul>
-        
-            <div className='flex p-1 flex-col lg:w-1/3'>
+            <div className='flex p-1 flex-col lg:w-3/5 border-b pb-6 mb-6 lg:border-b-0 lg:border-r lg:mr-2'>
               <div className='mb-8 lg:mb-0'>
                 <div className='flex items-center mb-2'>
                   <BiTime size={20} className="mr-2"/> <h3 className='text-lg font-medium underline underline-offset-3'>Opening hours:</h3>
                 </div>
-                <div className='text-base ml-6 lg:ml-8 lg:mb-4'>
+                <div className='text-base ml-6 lg:ml-8 lg:mb-8 lg:mt-4'>
                   <p>Weds-Fri</p>
-                  <ul className="list-disc">
-                    <li>Lunch: 12pm - 3pm</li>
-                    <li>Dinner: 6pm - 9pm</li>
+                  <ul className="list-disc mb-4">
+                    <li className="ml-4">Lunch: 12pm - 3pm</li>
+                    <li className="ml-4">Dinner: 6pm - 9pm</li>
                   </ul>
                   <p>Sat & Sun</p>
                   <ul className="list-disc">
-                    <li>Lunch: 2pm - 5pm</li>
-                    <li>Dinner: 6pm - 9pm</li>
+                    <li className="ml-4">Lunch: 2pm - 5pm</li>
+                    <li className="ml-4">Dinner: 6pm - 9pm</li>
                   </ul>
-                
                 </div>              
               </div>
               <div className="mb-4 lg:mb-0 lg:mt-0">
@@ -86,6 +79,11 @@ const IranianVeganRestaurant = () => {
                 <p className='text-base ml-6 lg:ml-8'>Jamboree Venue, <br /> 6 St Chad's Place, King's Cross, London WC1X 9HH</p>
               </div>
             </div>
+            <ul className="mb-6 lg:w-2/5 lg:pt-4 lg:ml-10">
+              <li className='text-base mb-4 list-disc'>Find our menu <a href="/Menu_v3.pdf" target="_blank" rel="noreferrer" className="font-medium underline pointer">here</a></li>
+              <li className='text-base mb-4 list-disc'>For bookings please call the venue on <span className="font-medium">02072786797</span></li>
+              <li className='text-base list-disc'>For any questions, please contact <span className="font-medium">theiranianvegan@gmail.com</span></li>
+            </ul>
           </div>
           
           {/* <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white'>
