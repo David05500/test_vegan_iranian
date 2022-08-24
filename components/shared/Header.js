@@ -92,13 +92,13 @@ const Header = props => {
               : <a><h4 className='pointer text-lg font-medium hover:opacity-60 transform ease-in duration-100'>تماس با من</h4></a>
             }
           </Link>
-          <div className="dropdown">
-            {/* <Link href="/recipes" >
+          {/* <div className="dropdown">
+            <Link href="/recipes" >
               {isEnglish
                 ? <a><h4 className='pointer text-sm font-medium  hover:opacity-60 transform ease-in duration-100 pointer'>RECIPES</h4></a>
                 : <a><h4 className='pointer text-lg font-medium  hover:opacity-60 transform ease-in duration-100 pointer'>طرز تهیه غذاها</h4></a>
               }
-            </Link> */}
+            </Link>
             <div className="dropdown-content">
               {isEnglish
                 ? (
@@ -118,7 +118,7 @@ const Header = props => {
                 )
               }
             </div>
-          </div>
+          </div> */}
 
           <Link href="/about">
             {isEnglish
