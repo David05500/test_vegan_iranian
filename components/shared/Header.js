@@ -139,6 +139,7 @@ const Header = props => {
           <form noValidate action="" role="search" className="lg:mt-0 relative">
             <input
               ref={searchRef}
+              
               type="search"
               value={userSearchQuery.query ? userSearchQuery.query : ""}
               // onChange={event => updateSearchState(event.currentTarget.value)}
