@@ -55,7 +55,7 @@ const Header = props => {
   }
 
   const navigate = () => {
-    router.push("/recipes/");
+    router.push("/iranian-vegan-restaurant/");
   }
 
   const updateSearchState = (query) => {
@@ -141,7 +141,8 @@ const Header = props => {
               ref={searchRef}
               type="search"
               value={userSearchQuery.query ? userSearchQuery.query : ""}
-              onChange={event => updateSearchState(event.currentTarget.value)}
+              // onChange={event => updateSearchState(event.currentTarget.value)}
+              onChange={event => null}
               className={`search-input text-sm font-medium px-2 py-1 flex justify-center text-black items-center transform ease-in duration-100 ${isEnglish ? '' : 'text-right'}`}
               placeholder={isEnglish ? 'Search here...' : '...جستجو'}
               onFocus={() => navigate()}
