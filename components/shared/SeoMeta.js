@@ -11,7 +11,7 @@ const Meta = ({ title, description, desc, ogUrl, ogType, ogImage, ogImageAlt, og
             <meta property="og:description" content={description} />
             <meta property="og:url" content={ogUrl} />
             <meta property="og:type" content={ogType} />
-            <meta property="og:image" content={"https://www.kleveland.dev/_next/image?url=%2Favatar.svg&w=256&q=75"} />
+            <meta property="og:image" content={"/rsz_theiranianveganfinal_webp.webp"} />
             <meta property="og:image:alt" content={ogImageAlt} />
             <meta property="og:site_name" content={ogSiteName} />
             <meta property="og:article:tag" content={articleTag} />
