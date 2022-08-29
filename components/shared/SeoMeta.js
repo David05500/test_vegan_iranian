@@ -1,7 +1,7 @@
 import Head from 'next/head'
 // import { GA_TRACKING_ID } from '../../lib/gtag';
 
-const Meta = ({ title, description, desc, ogUrl, ogType, ogImage, ogImageAlt, ogSiteName, articleTag }) => {
+const Meta = ({ title, description, ogUrl, ogType = "website", ogImage, ogImageAlt, ogSiteName, articleTag }) => {
     return (
         <Head>
             <title>{title}</title>
@@ -9,9 +9,10 @@ const Meta = ({ title, description, desc, ogUrl, ogType, ogImage, ogImageAlt, og
 
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
+
             <meta property="og:url" content={ogUrl} />
             <meta property="og:type" content={ogType} />
-            <meta property="og:image" content={"/rsz_theiranianveganfinal_webp.webp"} />
+            <meta property="og:image" content={ogImage} />
             <meta property="og:image:alt" content={ogImageAlt} />
             <meta property="og:site_name" content={ogSiteName} />
             <meta property="og:article:tag" content={articleTag} />
@@ -23,16 +24,16 @@ const Meta = ({ title, description, desc, ogUrl, ogType, ogImage, ogImageAlt, og
 
 
             <meta name="twitter:card" content="summary" />
-            <meta name="twitter:title" content="" />
-            <meta name="twitter:description" content={desc} />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={description} />
             <meta name="twitter:site" content="" />
             <meta name="twitter:creator" content="" />
+            <meta name="twitter:image" content="" />
+
             <link rel="icon" type="image/png" href="/favicon-32x32.png" />
             <link rel="apple-touch-icon" sizes="152x152" href="/favicon-32x32.png" />
-            <link rel="stylesheet" href="" />
-            <meta property="og:image" content="" />
-            <meta name="twitter:image" content="" />
-            <link rel="canonical" href="" />
+            {/* <link rel="stylesheet" href="" /> */}
+            {/* <link rel="canonical" href="" /> */}
             <script type="text/javascript" src="" ></script>
 
             <meta name="theme-color" content="#f1f3f5"></meta>

@@ -8,27 +8,88 @@ import { BiTime } from "react-icons/bi"
 const addJSONLD = () => {
   return {
     __html: `[{
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://theiranianvegan.com/about/#webpage",
-        "url": "https://theiranianvegan.com/about/",
-        "name": "Iranian Vegan | Iranian Vegan Restaurant",
-        "datePublished": "2020-08-31T12:00:44+00:00",
-        "inLanguage": "en-GB",
-        "isPartOf": {
-          "@type": "WebSite",
-          "@id": "https://theiranianvegan.com/#webpage",
-          "url": "https://theiranianvegan.com/",
-          "name": "The Iranian Vegan",
-          "description": "Discover authentic iranian vegan recipes!",
-          "inLanguage": "en-GB" 
+      "@context": "http://schema.org",
+      "@type": "Restaurant",
+       "image": "/restuarant-logo-with-bg.webp",
+       "priceRange" : "£2.50 - £15.95",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jamboree Jazz Venue, 6 St Chad's Place, King's Cross",
+        "addressLocality": "London",
+        "addressRegion": "United Kingdom",
+        "postalCode": "WC1X9HH"
+      },
+      "name": "Mana's Plant-based Persian Cuisine",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "17:00:00",
+          "dayOfWeek": "https://schema.org/Sunday",
+          "opens":  "14:00:00"
         },
-        "description": "One of the cultural traits that immigrant communities pass on from generation to generation is the heritage of our cuisine. For us, as Iranians, and especially as the Iranian diaspora, food is so much more than just food.",
-        "publisher": {
-            "@type": "Person",
-            "name": "Mana Rose Shamshiri-Fard"
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "21:00:00",
+          "dayOfWeek": "https://schema.org/Sunday",
+          "opens":  "18:00:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "17:00:00",
+          "dayOfWeek": "https://schema.org/Saturday",
+          "opens":  "14:00:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "21:00:00",
+          "dayOfWeek": "https://schema.org/Saturday",
+          "opens":  "18:00:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "15:00:00",
+          "dayOfWeek": "https://schema.org/Wednesday",
+          "opens": "12:00:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "21:00:00",
+          "dayOfWeek": "https://schema.org/Wednesday",
+          "opens": "18:00:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "15:00:00",
+          "dayOfWeek": "https://schema.org/Thursday",
+          "opens": "12:00:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "21:00:00",
+          "dayOfWeek": "https://schema.org/Thursday",
+          "opens": "18:00:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "15:00:00",
+          "dayOfWeek": "https://schema.org/Friday",
+          "opens": "12:00:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "closes":  "21:00:00",
+          "dayOfWeek": "https://schema.org/Friday",
+          "opens": "18:00:00"
         }
-      }]`
+      ],
+      "servesCuisine": [
+        "Middle Eastern",
+        "Persian"
+      ],
+      "telephone": "02072786797",
+      "url": "https://www.theiranianvegan.com/iranian-vegan-restaurant",
+      "hasMap": "https://GoogleMapLink"
+    }]`
   }
 };
 
@@ -38,11 +99,15 @@ const IranianVeganRestaurant = () => {
       <Meta
         title="Iranian Vegan | Mana's Plant-Based Persian Cuisine - Pop-up Restaurant"
         description='One of the cultural traits that immigrant communities pass on from generation to generation is the heritage of our cuisine. For us, as Iranians, and especially as the Iranian diaspora, food is so much more than just food.'
+        ogUrl="https://www.theiranianvegan.com/iranian-vegan-restaurant"
+        ogImage="/restuarant-logo-with-bg.webp"
+        ogImageAlt="Restuarant logo"
+        ogSiteName="The Iranian Vegan"
       />
+
+
       <div className='m-auto text-2xl bg-gray-primary'>
-
         <div className='max-width-735 p-6 pt-0 flex flex-col items-center lg:p-0 mx-auto lg:mb-20 lg:mb-10'>
-
           <Image height="500" width="500" src="/restuarant-logo.png" alt='Course icon' />
 
           <p className="mb-8 text-base text-justify">During the Coronavirus pandemic, I started an instagram blog (@theiranianvegan) and website, to document my cooking, share my recipes, and to prove to others that we do not have to leave our culture behind when going plant-based, or compromise on
