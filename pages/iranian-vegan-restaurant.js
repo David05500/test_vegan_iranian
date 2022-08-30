@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Meta from '../components/shared/SeoMeta.js'
 import { GoLocation } from "react-icons/go"
 import { BiTime } from "react-icons/bi"
+import ShareButtons from '../components/shared/shareButtons'
 
 const addJSONLD = () => {
   return {
@@ -88,7 +89,7 @@ const addJSONLD = () => {
       ],
       "telephone": "02072786797",
       "url": "https://www.theiranianvegan.com/iranian-vegan-restaurant",
-      "hasMap": "https://GoogleMapLink"
+      "hasMap": "https://www.google.com/maps?cid=12049293455256477694"
     }]`
   }
 };
@@ -106,7 +107,7 @@ const IranianVeganRestaurant = () => {
       />
 
 
-      <div className='m-auto text-2xl bg-gray-primary'>
+      <div className='m-auto text-2xl bg-gray-primary relative'>
         <div className='max-width-735 p-6 pt-0 flex flex-col items-center lg:p-0 mx-auto lg:mb-20 lg:mb-10'>
           <Image height="500" width="500" src="/restuarant-logo.png" alt='Course icon' />
 
@@ -179,6 +180,9 @@ const IranianVeganRestaurant = () => {
           
           
         </div>
+        {/* <div className="absolute right-0 bottom-[62%] flex flex-col">
+          <ShareButtons />
+        </div> */}
       </div>
       <script
         type="application/ld+json"

@@ -175,6 +175,8 @@ module.exports = {
       "28p": "28%",
       "30p": "30%",
       "70p": "70%",
+      "62p": "62p",
+
     },
     backgroundColor: theme => theme('colors'),
     backgroundPosition: {
