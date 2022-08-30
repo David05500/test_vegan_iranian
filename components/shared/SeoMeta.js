@@ -12,7 +12,7 @@ const Meta = ({ title, description, ogUrl, ogType = "website", ogImage, ogImageA
 
             <meta property="og:url" content={ogUrl} />
             <meta property="og:type" content={ogType} />
-            <meta property="og:image" content={ogImage} />
+            <meta property="og:image" itemprop="image" content={ogImage} />
             <meta property="og:image:alt" content={ogImageAlt} />
             <meta property="og:site_name" content={ogSiteName} />
             <meta property="og:article:tag" content={articleTag} />

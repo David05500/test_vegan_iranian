@@ -1,37 +1,50 @@
 import { 
     FacebookShareButton, 
     TwitterShareButton, 
-    LinkedinShareButton, 
+    LinkedinShareButton,
+    WhatsappShareButton, 
     FacebookIcon, 
     LinkedinIcon, 
-    TwitterIcon 
+    TwitterIcon,
+    WhatsappIcon
 } from 'react-share';
 
 const ShareButtons = () => {
   return (
-    <div>
-        <FacebookShareButton 
-            url="https://www.theiranianvegan.com/iranian-vegan-restaurant"
-            quote="yoo"
-            hashtag="#yoo"
-        >
-            <FacebookIcon style={{ opacity: '0.5'}} size={18} />
-        </FacebookShareButton>
+    <div className='inline'>
+            <FacebookShareButton 
+                url="https://www.theiranianvegan.com/iranian-vegan-restaurant"
+                quote="yoo"
+                hashtag="#manasplantbasedpersiancuisine"
+                className="mr-2"
+            >
+                <FacebookIcon style={{ opacity: '0.8'}} size={24} />
+            </FacebookShareButton>
 
-        <TwitterShareButton 
-            url="https://www.theiranianvegan.com/iranian-vegan-restaurant"
-            title="Check out this iHateReading custom repository "
-            hashtags={["#food"]}
-        >
-            <TwitterIcon style={{ opacity: '0.5'}} size={18} />
-        </TwitterShareButton>
+            <WhatsappShareButton 
+                url="https://www.theiranianvegan.com/iranian-vegan-restaurant"
+                title="Check out this vegan Persian restaurant "
+                className="mr-2"
+            >
+                <WhatsappIcon style={{ opacity: '0.8'}} size={24}  />
+            </WhatsappShareButton>
 
-        <LinkedinShareButton 
-            url="https://www.theiranianvegan.com/iranian-vegan-restaurant"
-            title="Check out this iHateReading custom repository "
-        >
-            <LinkedinIcon style={{ opacity: '0.5'}} size={18} />
-        </LinkedinShareButton>
+            <TwitterShareButton 
+                url="https://www.theiranianvegan.com/iranian-vegan-restaurant"
+                title="Check out this vegan Persian restaurant "
+                hashtags={["#persianfood"]}
+                className="mr-2"
+            >
+                <TwitterIcon style={{ opacity: '0.8'}} size={24} />
+            </TwitterShareButton>
+
+            <LinkedinShareButton 
+                url="https://www.theiranianvegan.com/iranian-vegan-restaurant"
+                title="Check out this vegan Persian restaurant "
+                className="mr-2"
+            >
+                <LinkedinIcon style={{ opacity: '0.8'}} size={24} />
+            </LinkedinShareButton>
     </div>
   )
 }

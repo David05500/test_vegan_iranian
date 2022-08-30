@@ -101,7 +101,7 @@ const IranianVeganRestaurant = () => {
         title="Iranian Vegan | Mana's Plant-Based Persian Cuisine - Pop-up Restaurant"
         description='One of the cultural traits that immigrant communities pass on from generation to generation is the heritage of our cuisine. For us, as Iranians, and especially as the Iranian diaspora, food is so much more than just food.'
         ogUrl="https://www.theiranianvegan.com/iranian-vegan-restaurant"
-        ogImage="/restuarant-logo-with-bg.webp"
+        ogImage="/restuarant-logo-with-bg-256x256.webp"
         ogImageAlt="Restuarant logo"
         ogSiteName="The Iranian Vegan"
       />
@@ -148,7 +148,12 @@ const IranianVeganRestaurant = () => {
             <ul className="mb-6 lg:w-2/5 lg:pt-4 lg:ml-10">
               <li className='text-base mb-4 list-disc'>Find our menu <a href="/Menu_v3.pdf" target="_blank" rel="noreferrer" className="font-medium underline pointer">here</a></li>
               <li className='text-base mb-4 list-disc'>For bookings please call the venue on <span className="font-medium">02072786797</span></li>
-              <li className='text-base list-disc'>For any questions, please contact <span className="font-medium">theiranianvegan@gmail.com</span></li>
+              <li className='text-base list-disc mb-4'>For any questions, please contact <span className="font-medium">theiranianvegan@gmail.com</span></li>
+              <li className='text-base list-disc'>
+                <div className='flex'>
+                  <span className='mr-2'>Share to:</span> <ShareButtons />
+                </div>
+              </li>
             </ul>
           </div>
           
@@ -180,9 +185,6 @@ const IranianVeganRestaurant = () => {
           
           
         </div>
-        {/* <div className="absolute right-0 bottom-[62%] flex flex-col">
-          <ShareButtons />
-        </div> */}
       </div>
       <script
         type="application/ld+json"
