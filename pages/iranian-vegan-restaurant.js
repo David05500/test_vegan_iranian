@@ -253,7 +253,7 @@ const IranianVeganRestaurant = () => {
                   onClick={() => {
                     checkout({
                       lineItems:[{
-                          price: "price_1LfTlvDwkFWRAyDP8GxmFwSV",
+                          price: "price_1LfUWwDwkFWRAyDPaN1QNkVQ",
                           quantity: publicLaunchQuantity
                       }
                     ]
@@ -268,7 +268,7 @@ const IranianVeganRestaurant = () => {
               onClick={() => {
                 checkout({
                   lineItems:[{
-                      price: "price_1LfTlvDwkFWRAyDP8GxmFwSV",
+                      price: "price_1LfUWwDwkFWRAyDPaN1QNkVQ",
                       quantity: privateLaunchQuantity
                   }
                 ]
