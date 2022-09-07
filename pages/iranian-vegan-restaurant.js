@@ -181,7 +181,7 @@ const IranianVeganRestaurant = () => {
 
               <div className="lg:w-2/5 mt-8 mb-2 lg:mt-4 lg:mt-0 flex flex-row justify-center lg:justify-end items-center">
                 <div className="w-1/2">
-                  <select value={privateLaunchQuantity} style="background:none;border:none;" onChange={(e) => setPrivateLaunchQuantity(parseInt(e.target.value))} id="countries_disabled" className="text-base mr-4 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-none py-1.5 px-1.5">
+                  <select value={privateLaunchQuantity} onChange={(e) => setPrivateLaunchQuantity(parseInt(e.target.value))} id="countries_disabled" className=" bg-none text-base mr-4 w-full border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-none py-1.5 px-1.5">
               
                     {[...Array(optionsQuantity)].map((e, i) => <option value={i} key={i}>{i}</option>)}
                   </select>
