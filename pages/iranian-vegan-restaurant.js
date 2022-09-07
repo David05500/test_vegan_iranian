@@ -166,12 +166,12 @@ const IranianVeganRestaurant = () => {
             <h3 className="text-lg">Book a place at the Restaurant:</h3>
           </div>
           <div className='flex flex-col mb-8  lg:mx-16 p-3 lg:p-6  relative shadow-md bg-white w-full lg:w-4/5'>
-            <h3 className="mb-8 text-xl font-medium">Private Launch</h3>
+            <h3 className="mb-8 text-xl font-medium">Private Launch Invite Only</h3>
 
             <div className='lg:flex lg:mb-6'>
               <div className="lg:w-3/5">
                 <div className='flex items-center mb-2'>
-                  <BiTime size={20} className="mr-2"/> <h3 className='text-base lg:text-lg'>6:30 - 10pm</h3>
+                  <BiTime size={20} className="mr-2"/> <h3 className='text-base lg:text-lg'>6:30pm - 10pm</h3>
                 </div>
 
                 <div className='flex items-center mb-2'>
@@ -227,7 +227,7 @@ const IranianVeganRestaurant = () => {
             <div className='lg:flex lg:mb-6'>
               <div className="lg:w-3/5">
                 <div className='flex items-center mb-2'>
-                  <BiTime size={20} className="mr-2"/> <h3 className='text-base lg:text-lg'>6:30 - 10pm</h3>
+                  <BiTime size={20} className="mr-2"/> <h3 className='text-base lg:text-lg'>7pm - 11pm</h3>
                 </div>
 
                 <div className='flex items-center mb-2'>
