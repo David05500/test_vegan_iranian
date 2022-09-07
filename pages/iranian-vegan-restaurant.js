@@ -197,7 +197,7 @@ const IranianVeganRestaurant = () => {
                   onClick={() => {
                     checkout({
                       lineItems:[{
-                          price: "price_1LT0tiEB4nr07nfa6ESzdDnC",
+                          price: "price_1LfTiQDwkFWRAyDPOtw4WhcE",
                           quantity: privateLaunchQuantity
                       }
                     ]
@@ -212,7 +212,7 @@ const IranianVeganRestaurant = () => {
               onClick={() => {
                 checkout({
                   lineItems:[{
-                      price: "price_1LT0tiEB4nr07nfa6ESzdDnC",
+                      price: "price_1LfTiQDwkFWRAyDPOtw4WhcE",
                       quantity: privateLaunchQuantity
                   }
                 ]
@@ -253,7 +253,7 @@ const IranianVeganRestaurant = () => {
                   onClick={() => {
                     checkout({
                       lineItems:[{
-                          price: "price_1LT0tiEB4nr07nfa6ESzdDnC",
+                          price: "price_1LfTlvDwkFWRAyDP8GxmFwSV",
                           quantity: publicLaunchQuantity
                       }
                     ]
@@ -268,7 +268,7 @@ const IranianVeganRestaurant = () => {
               onClick={() => {
                 checkout({
                   lineItems:[{
-                      price: "price_1LT0tiEB4nr07nfa6ESzdDnC",
+                      price: "price_1LfTlvDwkFWRAyDP8GxmFwSV",
                       quantity: privateLaunchQuantity
                   }
                 ]
