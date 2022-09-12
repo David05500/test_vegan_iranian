@@ -165,61 +165,7 @@ const IranianVeganRestaurant = () => {
           <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white w-full'>
             <h3 className="text-lg">Book a place at the Restaurant:</h3>
           </div>
-          <div className='flex flex-col mb-8  lg:mx-16 p-3 lg:p-6  relative shadow-md bg-white w-full lg:w-4/5'>
-            <h3 className="mb-8 text-xl font-medium">Private Launch Invite Only</h3>
-
-            <div className='lg:flex lg:mb-6'>
-              <div className="lg:w-3/5">
-                <div className='flex items-center mb-2'>
-                  <BiTime size={20} className="mr-2"/> <h3 className='text-base lg:text-lg'>6:30pm - 10pm</h3>
-                </div>
-
-                <div className='flex items-center mb-2'>
-                  <AiOutlineCalendar size={20} className="mr-2"/> <h3 className='text-base lg:text-lg'>Sunday the <span className="underline underline-offset-3">11th</span> of September</h3>
-                </div>
-              </div>
-
-              <div className="lg:w-2/5 mt-8 mb-2 lg:mt-4 lg:mt-0 flex flex-row justify-center lg:justify-end items-center">
-                <div className="w-1/2">
-                  <select value={privateLaunchQuantity} onChange={(e) => setPrivateLaunchQuantity(parseInt(e.target.value))} id="countries_disabled" className=" bg-none text-base mr-4 w-full border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-none py-1.5 px-1.5">
-              
-                    {[...Array(optionsQuantity)].map((e, i) => <option value={i} key={i}>{i}</option>)}
-                  </select>
-                </div>
-
-                <div className="lg:w-auto flex justify-center items-center">
-                  <span className='text-base ml-2'>-</span>
-                  <span className="w-20 lg:w-auto ml-2 text-xl">£{privateLaunchQuantity * 30}</span>
-                </div>
-
-                <button 
-                  type="button" className="w-1/2 lg:hidden px-6 py-2 border border-gray-400  font-medium text-xs leading-normal uppercase hover:bg-gray-100 hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                  onClick={() => {
-                    checkout({
-                      lineItems:[{
-                          price: "price_1LfTiQDwkFWRAyDPOtw4WhcE",
-                          quantity: privateLaunchQuantity
-                      }
-                    ]
-                    })
-                  }}
-                >Book</button>
-              </div>
-            </div>
-            
-            <button 
-              type="button" className="hidden lg:block self-end inline-block px-6 py-2 border border-gray-400  font-medium text-xs leading-normal uppercase rounded hover:bg-gray-100 hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-              onClick={() => {
-                checkout({
-                  lineItems:[{
-                      price: "price_1LfTiQDwkFWRAyDPOtw4WhcE",
-                      quantity: privateLaunchQuantity
-                  }
-                ]
-                })
-              }}
-            >Book</button>
-          </div>
+      
 
           <div className='flex flex-col mb-8  lg:mx-16 p-3 lg:p-6  relative shadow-md bg-white w-full lg:w-4/5'>
             <h3 className="mb-8 text-xl font-medium">Public Launch</h3>
