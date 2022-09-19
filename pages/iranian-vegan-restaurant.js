@@ -162,7 +162,7 @@ const IranianVeganRestaurant = () => {
               </li>
             </ul>
           </div>
-          <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white w-full'>
+          {/* <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white w-full'>
             <h3 className="text-lg">Book a place at the Restaurant:</h3>
           </div>
       
@@ -221,7 +221,7 @@ const IranianVeganRestaurant = () => {
                 })
               }}
             >Book</button>
-          </div>
+          </div> */}
           
           
         </div>
