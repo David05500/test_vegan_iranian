@@ -1,12 +1,17 @@
-import _ from 'lodash';
+// import _ from 'lodash';
+import {useEffect} from "react"
 import Image from 'next/image';
 import { checkout } from '../checkout.js';
 import Meta from '../components/shared/SeoMeta.js'
 import { GoLocation } from "react-icons/go"
 import { BiTime } from "react-icons/bi"
-import { AiOutlineCalendar } from "react-icons/ai"
+import { BsInfoCircle } from "react-icons/bs"
 import ShareButtons from '../components/shared/shareButtons'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import DonateModal from '../components/shared/DonateModal.js';
+import { AppDataContext } from '../components/AppDataContext.js';
+import { RiBookReadLine } from "react-icons/ri"
+
 
 const addJSONLD = () => {
   return {
@@ -101,6 +106,18 @@ const IranianVeganRestaurant = () => {
   const [publicLaunchQuantity, setPublicLaunchQuantity] = useState(1)
   const optionsQuantity = 11;
 
+  const {
+    isDonateModalOpen,
+    setDonateModal
+  } = useContext(AppDataContext);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+      script.src = "https://www.opentable.co.uk/widget/reservation/loader?rid=285099&type=standard&theme=standard&color=2&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=false&ot_source=Restaurant%20website";
+      script.async = true;
+      document.getElementById('myId').appendChild(script);
+  }, [])
+
   return (
     <>
       <Meta
@@ -125,7 +142,7 @@ const IranianVeganRestaurant = () => {
 
 
           <div className="flex flex-col lg:flex-row">
-            <div className='flex p-1 flex-col lg:w-3/5 border-b pb-6 mb-6 lg:border-b-0 lg:border-r lg:mr-2'>
+            <div className='flex p-1 flex-col lg:w-3/5 pb-6 lg:border-r lg:mr-2'>
               <div className='mb-8 lg:mb-0'>
                 <div className='flex items-center mb-2'>
                   <BiTime size={20} className="mr-2"/> <h3 className='text-lg font-medium underline underline-offset-3'>Opening hours:</h3>
@@ -151,22 +168,47 @@ const IranianVeganRestaurant = () => {
                 <p className='text-base ml-6 lg:ml-8'>Jamboree Venue, <br /> 6 St Chad's Place, King's Cross, London WC1X 9HH</p>
               </div>
             </div>
-            <ul className="mb-6 lg:w-2/5 lg:pt-4 lg:ml-10">
-              <li className='text-base mb-4 list-disc'>Find our menu <a href="/Menu_v3.pdf" target="_blank" rel="noreferrer" className="font-medium underline pointer">here</a></li>
-              <li className='text-base mb-4 list-disc'>For bookings please call the venue on <span className="font-medium">02072786797</span></li>
-              <li className='text-base list-disc mb-4'>For any questions, please contact <span className="font-medium">theiranianvegan@gmail.com</span></li>
-              <li className='text-base list-disc'>
-                <div className='flex'>
-                  <span className='mr-2'>Share to:</span> <ShareButtons />
+
+            <div className='mb-6 lg:w-2/5 lg:ml-10'>
+              <div id="myId" className="relative">
+                <div className="absolute w-full h-12 bg-gray-primary bottom-0"></div>
+                <div className="absolute w-full h-12 bg-gray-primary top-0 flex items-start">
+                  <RiBookReadLine className="mr-2" size={20}/>
+                  <h3 className='text-lg font-medium underline underline-offset-3'>Make a booking:</h3>
                 </div>
-              </li>
-            </ul>
+              </div>
+              <div className='flex items-center mb-2'>
+                <BsInfoCircle className="mr-2" size={20}/>
+                <h3 className='text-lg font-medium underline underline-offset-3'>Information:</h3>
+              </div>
+              <ul className="">
+                <li className='text-base mb-4 list-disc'>Find our menu <a href="/Menu_v3.pdf" target="_blank" rel="noreferrer" className="font-medium underline pointer">here</a></li>
+                <li className='text-base mb-4 list-disc'>For bookings please call the venue on <span className="font-medium">02072786797</span></li>
+                <li className='text-base list-disc mb-4'>For any questions, please contact <span className="font-medium">theiranianvegan@gmail.com</span></li>
+                <li className='text-base list-disc'>
+                  <div className='flex'>
+                    <span className='mr-2'>Share to:</span> <ShareButtons />
+                  </div>
+                </li>
+              </ul>
+      
+            </div>
           </div>
+          
+
+          {/* <div className="flex flex-col items-center">
+            <p className='text-base text-center font-medium'>Thank you so much for your support, if you’d like to support me to realise my dreams with this pop-up and future endeavours please donate below. Anything is very much appreciated.</p>
+            <p className="text-base mb-4 text-center font-medium mt-4">Thank you! Lots of love, Mana</p>
+            <button onClick={() => setDonateModal(true)} className='flex items-center w-24 px-4 py-3 bg-white rounded border-solid border border-gray-500 text-base flex'>
+               Donate
+            </button>
+          </div> */}
+          
           {/* <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white w-full'>
             <h3 className="text-lg">Book a place at the Restaurant:</h3>
-          </div>
-      
+          </div> */}
 
+       {/*
           <div className='flex flex-col mb-8  lg:mx-16 p-3 lg:p-6  relative shadow-md bg-white w-full lg:w-4/5'>
             <h3 className="mb-8 text-xl font-medium">Public Launch</h3>
 
@@ -222,9 +264,10 @@ const IranianVeganRestaurant = () => {
               }}
             >Book</button>
           </div> */}
-          
-          
         </div>
+        {isDonateModalOpen && <DonateModal />}
+
+        
       </div>
       <script
         type="application/ld+json"

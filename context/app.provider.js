@@ -19,6 +19,7 @@ const AppProvider = ({ children }) => {
             searchSuggestions,
             searchRef,
             recipesLoading,
+            isDonateModalOpen,
         },
         dispatch
     ] = React.useReducer(reducer, {
@@ -32,7 +33,8 @@ const AppProvider = ({ children }) => {
         page: 1,
         perPage: 9,
         searchRef: useRef(),
-        recipesLoading: true
+        recipesLoading: true,
+        isDonateModalOpen: false
     })
 
     const router = useRouter();
@@ -122,6 +124,8 @@ const AppProvider = ({ children }) => {
                 page,
                 perPage,
                 router,
+                isDonateModalOpen,
+                setDonateModal: val => dispatch({ type: "UPDATE_VALUE", key: "isDonateModalOpen", value: val }),
                 next: () => dispatch({ type: "UPDATE_VALUE", key: "page", value: page + 1 }),
                 updateSearchSuggestions: updateSearchSuggestions,
                 setInitialRecipes: val => dispatch({ type: "UPDATE_VALUE", key: "initialRecipes", value: val }),
