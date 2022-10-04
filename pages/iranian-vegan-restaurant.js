@@ -1,4 +1,5 @@
 // import _ from 'lodash';
+import Link from 'next/link'
 import {useEffect} from "react"
 import Image from 'next/image';
 import { checkout } from '../checkout.js';
@@ -117,6 +118,13 @@ const IranianVeganRestaurant = () => {
       script.async = true;
       document.getElementById('myId').appendChild(script);
   }, [])
+  const triggerOpenTableModal = () => {
+    var iframe = document.getElementsByName('opentable-make-reservation-widget');
+    // var innerDoc = iframe[0].contentDocument || iframe[0].contentWindow?.document;
+    console.log(iframe)
+    console.log(iframe[0])
+    // console.log(innerDoc)
+  }
 
   return (
     <>
@@ -132,13 +140,16 @@ const IranianVeganRestaurant = () => {
 
       <div className='m-auto text-2xl bg-gray-primary relative'>
         <div className='max-width-735 p-6 pt-0 flex flex-col items-center lg:p-0 mx-auto lg:mb-20 lg:mb-10'>
-          <Image height="500" width="500" src="/restuarant-logo.png" alt='Course icon' />
+          <Image height="300" width="300" src="/restuarant-logo.png" alt='Course icon' />
 
-          <p className="mb-8 text-base text-justify">During the Coronavirus pandemic, I started an instagram blog (@theiranianvegan) and website, to document my cooking, share my recipes, and to prove to others that we do not have to leave our culture behind when going plant-based, or compromise on
+          <button className='mb-8 p-4 border-2 border-gray-800 shadow-md hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103' onClick={() => triggerOpenTableModal()}>
+            <h3>BOOK YOUR TABLE NOW</h3>
+          </button>
+
+          <p className="mb-6 text-base text-justify">During the Coronavirus pandemic, I started an instagram blog (@theiranianvegan) and website, to document my cooking, share my recipes, and to prove to others that we do not have to leave our culture behind when going plant-based, or compromise on
             flavour.</p>
-          <p className="mb-10 text-base text-justify">From September, I am running a pop-up restaurant on a four month residency at <span className="font-medium">Jamboree Jazz Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH</span>.</p>
-          <Image height="853" width="1280" src="/mana_restuarant.webp" alt='Course icon' />
-          <p className="mb-6 text-base text-justify mt-10 mb-6 lg:mb-12">For Iranians, food goes beyond merely sustenance. It is first and foremost an expression of love, of warmth, of hospitality, of community, and a celebration of our rich cultural heritage. I am so grateful to have the opportunity to share this with you. Expect a selection of traditional sharing mezze, stews, clay-oven baked bread and desserts.</p>       
+          <p className="mb-6 text-base text-justify">From September, I am running a pop-up restaurant on a four month residency at <span className="font-medium">Jamboree Jazz Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH</span>.</p>
+          <p className="mb-6 text-base text-justify lg:mb-12">For Iranians, food goes beyond merely sustenance. It is first and foremost an expression of love, of warmth, of hospitality, of community, and a celebration of our rich cultural heritage. I am so grateful to have the opportunity to share this with you. Expect a selection of traditional sharing mezze, stews, clay-oven baked bread and desserts.</p>       
 
 
           <div className="flex flex-col lg:flex-row">
@@ -195,6 +206,9 @@ const IranianVeganRestaurant = () => {
             </div>
           </div>
           
+          {/* <div className="mt-12">
+            <Image height="853" width="1280" src="/mana_restuarant.webp" alt='Course icon' />
+          </div> */}
 
           {/* <div className="flex flex-col items-center">
             <p className='text-base text-center font-medium'>Thank you so much for your support, if you’d like to support me to realise my dreams with this pop-up and future endeavours please donate below. Anything is very much appreciated.</p>
