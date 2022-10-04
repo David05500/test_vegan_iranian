@@ -118,13 +118,6 @@ const IranianVeganRestaurant = () => {
       script.async = true;
       document.getElementById('myId').appendChild(script);
   }, [])
-  const triggerOpenTableModal = () => {
-    var iframe = document.getElementsByName('opentable-make-reservation-widget');
-    // var innerDoc = iframe[0].contentDocument || iframe[0].contentWindow?.document;
-    console.log(iframe)
-    console.log(iframe[0])
-    // console.log(innerDoc)
-  }
 
   return (
     <>
@@ -142,10 +135,12 @@ const IranianVeganRestaurant = () => {
         <div className='max-width-735 p-6 pt-0 flex flex-col items-center lg:p-0 mx-auto lg:mb-20 lg:mb-10'>
           <Image height="300" width="300" src="/restuarant-logo.png" alt='Course icon' />
 
-          <button className='mb-8 p-4 border-2 border-gray-800 shadow-md hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103' onClick={() => triggerOpenTableModal()}>
-            <h3>BOOK YOUR TABLE NOW</h3>
-          </button>
-
+          <Link href="https://www.opentable.co.uk/restref/client/?restref=285099&lang=en-GB&ot_source=Restaurant%20website&corrid=077b9926-3590-4498-85ca-0317a2f226fc" passHref={true}>
+            <div  className='mb-10 p-4 border-2 border-gray-800 shadow-md bg-white hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103'>
+              <h3>BOOK YOUR TABLE NOW</h3>
+            </div>
+          </Link>
+          
           <p className="mb-6 text-base text-justify">During the Coronavirus pandemic, I started an instagram blog (@theiranianvegan) and website, to document my cooking, share my recipes, and to prove to others that we do not have to leave our culture behind when going plant-based, or compromise on
             flavour.</p>
           <p className="mb-6 text-base text-justify">From September, I am running a pop-up restaurant on a four month residency at <span className="font-medium">Jamboree Jazz Venue, 6 St Chad's Place, King's Cross, London WC1X 9HH</span>.</p>
