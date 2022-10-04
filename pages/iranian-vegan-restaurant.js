@@ -138,7 +138,7 @@ const IranianVeganRestaurant = () => {
           <div className='my-6 flex flex-col items-center'>
 
             <Link href="/Menu_v3.pdf" target="_blank" rel="noreferrer">
-              <div  className='p-4 border-2 border-gray-800 shadow-md hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103  text-xl'>
+              <div  className='p-4 border-2 border-red-800 shadow-md hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103  text-xl'>
                 <h3>VIEW OUR MENU</h3>
                 {/* <h3 className='underline underline-offset-3 pointer'>VIEW OUR MENU</h3> */}
               </div>
@@ -147,7 +147,7 @@ const IranianVeganRestaurant = () => {
             <p className='my-3'>or</p>
 
             <Link href="https://www.opentable.co.uk/restref/client/?restref=285099&lang=en-GB&ot_source=Restaurant%20website&corrid=077b9926-3590-4498-85ca-0317a2f226fc" passHref={true}>
-              <div  className='mb-10 p-4 border-2 border-gray-800 shadow-md bg-gray-800 text-white hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103 text-xl'>
+              <div  className='mb-10 p-4 border-2 border-red-800 shadow-md bg-red-800 text-white hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103 text-xl'>
                 <h3>BOOK YOUR TABLE NOW</h3>
               </div>
             </Link>
@@ -249,7 +249,7 @@ const IranianVeganRestaurant = () => {
 
               <div className="lg:w-2/5 mt-8 mb-2 lg:mt-4 lg:mt-0 flex flex-row justify-center lg:justify-end items-center">
                 <div className="w-1/2">
-                  <select value={publicLaunchQuantity} onChange={(e) => setPublicLaunchQuantity(parseInt(e.target.value))} id="countries_disabled" className="text-base mr-4 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-none py-1.5 px-1.5">
+                  <select value={publicLaunchQuantity} onChange={(e) => setPublicLaunchQuantity(parseInt(e.target.value))} id="countries_disabled" className="text-base mr-4 w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 rounded-none py-1.5 px-1.5">
               
                     {[...Array(optionsQuantity)].map((e, i) => <option value={i} key={i}>{i}</option>)}
                   </select>
