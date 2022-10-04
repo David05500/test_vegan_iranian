@@ -138,13 +138,16 @@ const IranianVeganRestaurant = () => {
           <div className='my-6 flex flex-col items-center'>
 
             <Link href="/Menu_v3.pdf" target="_blank" rel="noreferrer">
-              <h3 className='underline underline-offset-3 pointer'>VIEW OUR MENU</h3>
+              <div  className='p-4 border-2 border-gray-800 shadow-md hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103'>
+                <h3>VIEW OUR MENU</h3>
+                {/* <h3 className='underline underline-offset-3 pointer'>VIEW OUR MENU</h3> */}
+              </div>
             </Link>
 
             <p className='my-3'>or</p>
 
             <Link href="https://www.opentable.co.uk/restref/client/?restref=285099&lang=en-GB&ot_source=Restaurant%20website&corrid=077b9926-3590-4498-85ca-0317a2f226fc" passHref={true}>
-              <div  className='mb-10 p-4 border-2 border-gray-800 shadow-md bg-white hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103'>
+              <div  className='mb-10 p-4 border-2 border-gray-800 shadow-md bg-gray-800 text-white hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103'>
                 <h3>BOOK YOUR TABLE NOW</h3>
               </div>
             </Link>
