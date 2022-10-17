@@ -138,7 +138,7 @@ const IranianVeganRestaurant = () => {
           <div className='my-6 flex flex-col items-center'>
 
             <Link href="https://www.opentable.co.uk/restref/client/?restref=285099&lang=en-GB&ot_source=Restaurant%20website&corrid=077b9926-3590-4498-85ca-0317a2f226fc" passHref={true}>
-              <div  className=' p-4 border-2 border-red-800 shadow-md bg-red-800 text-white hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103 text-2xl text-center'>
+              <div  className='p-4 border-2 border-red-800 shadow-md bg-red-800 text-white hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103 text-2xl text-center'>
                 <h3>BOOK YOUR TABLE NOW</h3>
               </div>
             </Link>
@@ -220,13 +220,13 @@ const IranianVeganRestaurant = () => {
             <Image height="853" width="1280" src="/mana_restuarant.webp" alt='Course icon' />
           </div> */}
 
-          {/* <div className="flex flex-col items-center">
-            <p className='text-base text-center font-medium'>Thank you so much for your support, if you’d like to support me to realise my dreams with this pop-up and future endeavours please donate below. Anything is very much appreciated.</p>
+          <div className="flex flex-col items-center border-t pt-8" >
+            <p className='text-base text-center font-medium'>If you’d like to support me to realise my dreams with this pop-up and future endeavours please donate below. Anything is very much appreciated.</p>
             <p className="text-base mb-4 text-center font-medium mt-4">Thank you! Lots of love, Mana</p>
-            <button onClick={() => setDonateModal(true)} className='flex items-center w-24 px-4 py-3 bg-white rounded border-solid border border-gray-500 text-base flex'>
+            <button onClick={() => setDonateModal(true)} className='p-2 px-3 border-2 border-red-800 shadow-md bg-red-800 text-white hover:shadow-lg  duration-75 rounded pointer transform  scale-100 hover:scale-103 text-lg text-center'>
                Donate
             </button>
-          </div> */}
+          </div> 
           
           {/* <div className='flex flex-col mb-8  lg:mx-16 p-2 lg:p-6  relative shadow-md bg-white w-full'>
             <h3 className="text-lg">Book a place at the Restaurant:</h3>

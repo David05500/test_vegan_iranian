@@ -56,14 +56,14 @@ const DonateModal = () => {
                     <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 w-full lg:w-auto">
                         <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                             <div className="sm:flex sm:items-start">
-                                <div className="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
-                                    <h3 className="text-lg font-medium leading-6 text-gray-900" id="modal-title">Donation</h3>
-                                    <div className="mt-2">
+                                <div className="sm:mt-0 sm:ml-4 sm:text-left">
+                                    <h3 className="text-lg font-medium leading-6 text-black" id="modal-title">Donation</h3>
+                                    <div className="mt-4">
                                         {!isPaymentSuccess && (
                                             <form onSubmit={handleFormSubmit}>
                                                 <div className="flex flex-col">
                                                     <input
-                                                        className="bg-white mb-4 text-base lg:text-base text-gray-700 appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" 
+                                                        className="bg-white mb-4 text-base lg:text-base text-black appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none" 
                                                         name="name"
                                                         label="Name"
                                                         type="text"
@@ -76,7 +76,7 @@ const DonateModal = () => {
                                                         required
                                                     />
                                                     <input
-                                                        className="bg-white mb-4 text-base lg:text-base text-gray-700 appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" 
+                                                        className="bg-white mb-4 text-base lg:text-base text-black appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none" 
                                                         name="email"
                                                         label="Email"
                                                         type="email"
@@ -89,7 +89,7 @@ const DonateModal = () => {
                                                         required
                                                     />
                                                     {/* <input
-                                                        className="bg-white mb-4 text-base lg:text-base text-gray-700 appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" 
+                                                        className="bg-white mb-4 text-base lg:text-base text-black appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none" 
                                                         name="address"
                                                         label="Address"
                                                         type="text"
@@ -99,7 +99,7 @@ const DonateModal = () => {
                                                         required
                                                     />
                                                     <input
-                                                        className="bg-white mb-4 text-base lg:text-base text-gray-700 appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" 
+                                                        className="bg-white mb-4 text-base lg:text-base text-black appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none" 
                                                         name="city"
                                                         label="City"
                                                         type="text"
@@ -109,7 +109,7 @@ const DonateModal = () => {
                                                         required
                                                     />
                                                     <input
-                                                        className="bg-white mb-4 text-base lg:text-base text-gray-700 appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline" 
+                                                        className="bg-white mb-4 text-base lg:text-base text-black appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none" 
                                                         name="county"
                                                         label="County"
                                                         type="text"
@@ -120,7 +120,7 @@ const DonateModal = () => {
                                                     /> */}
                                                     <div  className="flex">
                                                         <input
-                                                            className="bg-white mb-4 text-base lg:text-base text-gray-700 appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline w-1/2 mr-2" 
+                                                            className="bg-white mb-4 text-base lg:text-base text-black appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none w-1/2 mr-2" 
                                                             name="Amount"
                                                             label="Amount"
                                                             type="number"
@@ -130,7 +130,7 @@ const DonateModal = () => {
                                                             required
                                                         />
                                                         <input
-                                                            className="bg-white mb-4 text-base lg:text-base text-gray-700 appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline w-1/2" 
+                                                            className="bg-white mb-4 text-base lg:text-base text-black appearance-none border rounded-md border-gray-400 w-full py-2 px-3 leading-tight focus:outline-none w-1/2" 
                                                             name="Post code"
                                                             label="PC"
                                                             type="text"
@@ -154,8 +154,8 @@ const DonateModal = () => {
                                         )}
                                         {isPaymentSuccess && (
                                             <>
-                                                <h3 className="text-lg font-medium text-gray-900" id="modal-title">Payment successful</h3>
-                                                <p  className="text-base font-medium text-gray-900">Thank you for your support! <br />You should recieve an invoice for this transaction via an email,<br /> if you provided one.</p>
+                                                <h3 className="text-lg font-medium text-black" id="modal-title">Payment successful</h3>
+                                                <p  className="text-base font-medium text-black">Thank you for your support! <br />You should recieve an invoice for this transaction via an email,<br /> if you provided one.</p>
                                             </>
                                         )}
                                     </div>
@@ -168,7 +168,7 @@ const DonateModal = () => {
                             {!isPaymentSuccess && (
                                 <button 
                                     type="button" 
-                                    onClick={() => isProcessing || !paymentDetails.address.postCode || !amount ? null : handleFormSubmit(stripe, elements)} className={`${isProcessing || !paymentDetails.address.postCode || !amount ? "bg-green-300 cursor-not-allowed" : "bg-green-600 hover:bg-green-700 focus:ring-green-500"} inline-flex w-full lg:w-24 justify-center rounded-md border border-transparent px-4 ${!isProcessing ? "py-2" : "pt-2.5 pb-2"} text-base font-medium text-white shadow-sm  focus:outline-none focus:ring-2  focus:ring-offset-2 sm:ml-3  sm:text-sm`}>
+                                    onClick={() => isProcessing || !paymentDetails.address.postCode || !amount ? null : handleFormSubmit(stripe, elements)} className={`${isProcessing || !paymentDetails.address.postCode || !amount ? "bg-red-300 cursor-not-allowed" : "bg-red-600 hover:bg-red-700 focus:ring-red-500"} inline-flex w-full lg:w-24 justify-center rounded-md border border-transparent px-4 ${!isProcessing ? "py-2" : "pt-2.5 pb-2"} text-base font-medium text-white shadow-sm  focus:outline-none focus:ring-2  focus:ring-offset-2 sm:ml-3  sm:text-sm`}>
                                     { !isProcessing ? "Donate" : 
                                     (
                                         <svg aria-hidden="true" className="w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -196,7 +196,7 @@ const DonateModal = () => {
                                 updateValue("isPaymentSuccess", false)
                                 setAmount(0)
                             }} 
-                            type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Close</button>
+                            type="button" className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-black shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Close</button>
                         </div>
                     </div>
                 </div>
