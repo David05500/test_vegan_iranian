@@ -117,6 +117,7 @@ const IranianVeganRestaurant = () => {
       script.src = "https://www.opentable.co.uk/widget/reservation/loader?rid=285099&type=standard&theme=standard&color=2&dark=false&iframe=true&domain=couk&lang=en-GB&newtab=false&ot_source=Restaurant%20website";
       script.async = true;
       document.getElementById('myId').appendChild(script);
+      document.querySelector('video').play();
   }, [])
 
   return (
@@ -135,8 +136,12 @@ const IranianVeganRestaurant = () => {
         <div className='max-width-735 p-6 pt-0 flex flex-col items-center lg:p-0 mx-auto lg:mb-20 lg:mb-10'>
           <Image height="300" width="300" src="/restuarant-logo.png" alt='Course icon' />
 
-          <div className='my-6 flex flex-col items-center'>
+          <video controls muted autoplay height="900px"  width="900px" className='mb-6'>
+            <source src="/restaurant_video.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+          </video>
 
+          <div className='my-6 flex flex-col items-center'>
             <Link href="https://www.opentable.co.uk/restref/client/?restref=285099&lang=en-GB&ot_source=Restaurant%20website&corrid=077b9926-3590-4498-85ca-0317a2f226fc" passHref={true}>
               <div  className='p-4 border-2 border-red-800 shadow-md bg-red-800 text-white hover:shadow-2xl  duration-75 rounded pointer transform  scale-100 hover:scale-103 text-2xl text-center'>
                 <h3>BOOK YOUR TABLE NOW</h3>
