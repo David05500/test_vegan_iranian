@@ -136,7 +136,7 @@ const IranianVeganRestaurant = () => {
         <div className='max-width-735 p-6 pt-0 flex flex-col items-center lg:p-0 mx-auto lg:mb-20 lg:mb-10'>
           <Image height="300" width="300" src="/restuarant-logo.png" alt='Course icon' />
 
-          <video controls muted autoplay height="900px"  width="900px" className='mb-6'>
+          <video controls muted height="900px"  width="900px" className='mb-6'>
             <source src="/restaurant_video.mp4" type="video/mp4"/>
             Your browser does not support the video tag.
           </video>
@@ -186,7 +186,7 @@ const IranianVeganRestaurant = () => {
                   </ul>
                 </div>              
               </div>
-              <div className="mb-4 lg:mb-0 lg:mt-0">
+              <div className="mb-4 lg:mb-0 lg:mt-16">
                 <div className='flex items-center mb-2'>
                   <GoLocation className="mr-2" size={20}/>
                   <h3 className='text-lg font-medium underline underline-offset-3'>See you here:</h3>
